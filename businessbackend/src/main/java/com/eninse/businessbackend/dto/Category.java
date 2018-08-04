@@ -2,6 +2,13 @@ package com.eninse.businessbackend.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Category implements Serializable{
 	
 	private static final long serialVersionUID = 2203804623868410125L;
@@ -9,11 +16,26 @@ public class Category implements Serializable{
 	/*
 	 * Private Fields Category Products
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String name;
 	private String description;
+	
+	@Column(name="image_url")
 	private String imageURl;
+	
+	@Column(name="is_active")
 	private boolean active = true;
+	
+	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description="
+				+ description + ", imageURl=" + imageURl + ", active=" + active
+				+ "]";
+	}
 	
 	/**
 	 * @return the id
