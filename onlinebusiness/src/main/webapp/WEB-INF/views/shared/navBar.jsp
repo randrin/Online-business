@@ -1,27 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Business Online Shopping</a>
+        <a class="navbar-brand" href="${contextRoot}/home"><b>Online Shopping</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item" id="home">
-              <a class="nav-link" href="${contextRoot}/home">Home
+            <li class="nav-item styleItem" id="home">
+              <a class="nav-link" href="${contextRoot}/home"><b>HOME</b>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item" id="about">
-              <a class="nav-link" href="${contextRoot}/about">About</a>
+            <li class="nav-item styleItem" id="about">
+              <a class="nav-link" href="${contextRoot}/about"><b>ABOUT</b></a>
             </li>
-            <li class="nav-item" id="services">
-              <a class="nav-link" href="${contextRoot}/services">Services</a>
+            <li class="nav-item styleItem" id="services">
+              <a class="nav-link" href="${contextRoot}/services"><b>SERVICES</b></a>
             </li>
-            <li class="nav-item" id="listOfProducts">
-              <a class="nav-link" href="${contextRoot}/listProducts">View Products</a>
+            <li class="nav-item styleItem" id="listOfProducts">
+              <a class="nav-link" href="${contextRoot}/listProducts"><b>PRODUCTS</b></a>
             </li>
-            <li class="nav-item" id="contact">
-              <a class="nav-link" href="${contextRoot}/contact">Contact</a>
+            <li class="nav-item styleItem" id="contact">
+              <a class="nav-link" href="${contextRoot}/contact"><b>CONTACT</b></a>
             </li>
           </ul>
         </div>
