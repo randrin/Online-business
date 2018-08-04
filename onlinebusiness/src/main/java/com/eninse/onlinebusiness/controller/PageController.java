@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eninse.businessbackend.dao.CategoryDAO;
+import com.eninse.businessbackend.dto.Category;
 
 @Controller
 public class PageController {
@@ -28,30 +29,52 @@ public class PageController {
 	public ModelAndView about() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("tittle", "About Us");
+		mv.addObject("categorydao", categorydao.listCategory());
 		mv.addObject("userClickAbout", true);
 		return mv;
 	}
 	
+	/*
+	 * Method to load products
+	 */
 	@RequestMapping(value = "/services")
 	public ModelAndView services() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("tittle", "Services");
+		mv.addObject("categorydao", categorydao.listCategory());
 		mv.addObject("userClickServices", true);
 		return mv;
 	}
 	
-	@RequestMapping(value = "/listProducts")
-	public ModelAndView listproducts() {
+	@RequestMapping(value = "show/category/{id}/products")
+	public ModelAndView categoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("tittle", "List of Products");
-		mv.addObject("userClickListProducts", true);
+		
+		//Fetch a sngle category
+		Category catgegory = null;
+		catgegory = categorydao.get(id);
+		
+		mv.addObject("tittle", catgegory.getName());
+		mv.addObject("categorydao", categorydao.listCategory());
+		mv.addObject("category", catgegory);
+		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
 	
+	
+	@RequestMapping(value = "show/all/products")
+	public ModelAndView listProducts() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("tittle", "List of Products");
+		mv.addObject("categorydao", categorydao.listCategory());
+		mv.addObject("userClickListProducts", true);
+		return mv;
+	}
 	@RequestMapping(value = "/contact")
 	public ModelAndView contact() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("tittle", "Contact Us");
+		mv.addObject("categorydao", categorydao.listCategory());
 		mv.addObject("userClickContact", true);
 		return mv;
 	}

@@ -1,7 +1,20 @@
 <div class="container">
 	<div class="row">
-		<h1><b>Contact Page</b></h1>
-		<br/>
-		<p>Welcome to Contact Page</p>
+		<div class="col-md-3">
+			<%@include file="./shared/categoryList.jsp" %>
+		</div>
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3><b>Contact</b></h3>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-lg-12">
+					<p><b>Welcome to Contact Us Page</b></p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -18,7 +18,8 @@ $(document).ready(function() {
 		break;
 
 	default:
-		$('#home').addClass('active');
+		$('#listOfProducts').addClass('active');
+		$('#a_'+menu).addClass('active');
 		break;
 	}
 });

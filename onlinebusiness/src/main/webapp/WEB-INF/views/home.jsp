@@ -1,7 +1,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<h1 class="my-4">Shopping Online</h1>
 			<%@include file="./shared/categoryList.jsp" %>
 		</div>
 		<!-- /.col-lg-3 -->
