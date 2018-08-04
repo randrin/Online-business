@@ -20,6 +20,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- LINK BACKEND PROJECT TO FRONTEND -->
+		<dependency>
+			<groupId>com.eninse</groupId>
+			<artifactId>businessbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- JUNIT TEXT -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -42,7 +49,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
