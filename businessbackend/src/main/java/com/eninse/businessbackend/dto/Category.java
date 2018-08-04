@@ -17,7 +17,7 @@ public class Category implements Serializable{
 	 * Private Fields Category Products
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String name;

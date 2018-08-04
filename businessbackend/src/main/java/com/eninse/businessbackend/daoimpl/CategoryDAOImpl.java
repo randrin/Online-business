@@ -1,9 +1,8 @@
 package com.eninse.businessbackend.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.persistence.Query;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,61 +12,41 @@ import org.springframework.transaction.annotation.Transactional;
 import com.eninse.businessbackend.dao.CategoryDAO;
 import com.eninse.businessbackend.dto.Category;
 
-@Repository
+@Repository("categoryDAO")
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	private static List<Category> categories = new ArrayList<Category>();
 
-	static {
-		// First Item
-		Category category = new Category();
-		category.setId(1);
-		category.setDescription("Sac de Mode");
-		category.setName("Mode");
-		category.setImageURl("CAT_1.png");
-		categories.add(category);
-		
-		// Second Item
-		category = new Category();
-		category.setId(2);
-		category.setDescription("Make up de Mode");
-		category.setName("Beauté");
-		category.setImageURl("CAT_2.png");
-		categories.add(category);
-		
-		// Second Item
-		category = new Category();
-		category.setId(3);
-		category.setDescription("Vetements Femmes de Mode");
-		category.setName("Evenemenet");
-		category.setImageURl("CAT_3.png");
-		categories.add(category);
-	}
-
+	/*
+	 * Get List Category in H2 Database
+	 */
 	@Override
 	public List<Category> listCategory() {
-		return categories;
+		
+		String listCategory = "FROM Category WHERE active = :active";
+		Query query  = sessionFactory.getCurrentSession().createQuery(listCategory);
+		query.setParameter("active", true);
+		
+		return query.getResultList();
 	}
 
+	/*
+	 * Get Single Category with specific id in H2 Database
+	 */
 	@Override
 	public Category get(int id) {
 		
-		for (Category cat : categories){
-			if (cat.getId() == id)
-				return cat;
-		}
-		return null;
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
 	}
 
+	/*
+	 * Add Single Category in H2 Database
+	 */
 	@Override
-	@Transactional
 	public boolean add(Category category) {
-
 		try{
-			//Add categories to H2 Database
 			sessionFactory.getCurrentSession().persist(category);
 			return true;
 		} catch (Exception e) {
@@ -76,4 +55,32 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 	}
 
+	/*
+	 * Update Single Category in H2 Database
+	 */
+	@Override
+	public boolean update(Category category) {
+		try{
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	/*
+	 * Delete Single Category in H2 Database
+	 */
+	@Override
+	public boolean delete(Category category) {
+		category.setActive(false);
+		try{
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

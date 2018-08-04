@@ -21,21 +21,21 @@ import com.eninse.businessbackend.constants.Constants;
 public class HibernateConfiguration {
 	
 
-	@Bean
-	private DataSource getDataSource() {
+	@Bean("dataSource")
+	public DataSource getDataSource() {
 		
-		BasicDataSource basicDataSource = new BasicDataSource();
+		BasicDataSource dataSource = new BasicDataSource();
 		
-		basicDataSource.setUrl(Constants.DATASOURCE_URL);
-		basicDataSource.setDriverClassName(Constants.DATASOURCE_DRIVER);
-		basicDataSource.setUsername(Constants.DATASOURCE_USERNAME);
-		basicDataSource.setPassword(Constants.DATASOURCE_PWD);
+		dataSource.setUrl(Constants.DATASOURCE_URL);
+		dataSource.setDriverClassName(Constants.DATASOURCE_DRIVER);
+		dataSource.setUsername(Constants.DATASOURCE_USERNAME);
+		dataSource.setPassword(Constants.DATASOURCE_PWD);
 		
-		return basicDataSource;
+		return dataSource;
 	}
 	
 	@Bean
-	private SessionFactory getSessionFactory(DataSource datasource) {
+	public SessionFactory getSessionFactory(DataSource datasource) {
 		
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(datasource);
 		builder.addProperties(getProperties());
@@ -58,6 +58,5 @@ public class HibernateConfiguration {
 		HibernateTransactionManager hinernate = new HibernateTransactionManager(sessionFactory);
 		
 		return hinernate;
-		
 	}
 }
