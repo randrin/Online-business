@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product implements Serializable {
 
@@ -24,6 +26,8 @@ public class Product implements Serializable {
 	private String code;
 	private String name;
 	private String brand;
+	
+	@JsonIgnore
 	private String description;
 	
 	@Column(name="unit_price")
@@ -32,12 +36,15 @@ public class Product implements Serializable {
 	private int quantity;
 	
 	@Column(name="category_id")
+	@JsonIgnore
 	private int categoryId;
 	
 	@Column(name="supplier_id")
+	@JsonIgnore
 	private int supplierId;
 	
 	@Column(name="is_active")
+	@JsonIgnore
 	private boolean active = true;
 	
 	private int purchases;
