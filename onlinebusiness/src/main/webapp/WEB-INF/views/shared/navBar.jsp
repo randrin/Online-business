@@ -20,6 +20,9 @@
             <li class="nav-item styleItem" id="listOfProducts">
               <a class="nav-link" href="${contextRoot}/show/all/products"><b>PRODUCTS</b></a>
             </li>
+            <li class="nav-item styleItem" id="manageProducts">
+              <a class="nav-link" href="${contextRoot}/manage/products"><b>MANAGE PRODUCT</b></a>
+            </li>
             <li class="nav-item styleItem" id="contact">
               <a class="nav-link" href="${contextRoot}/contact"><b>CONTACT</b></a>
             </li>

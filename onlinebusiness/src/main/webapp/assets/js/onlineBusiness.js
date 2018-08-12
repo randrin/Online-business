@@ -14,6 +14,10 @@ $(document).ready(function() {
 			$('#listOfProducts').addClass('active');
 			break;
 	
+		case 'Manage Products':
+			$('#manageProducts').addClass('active');
+			break;
+			
 		case 'Contact Us':
 			$('#contact').addClass('active');
 			break;
@@ -61,8 +65,6 @@ $(document).ready(function() {
 			        {data: 'quantity',
 			        	mRender: function(data, type, row){
 			        		if (data < 1){
-			        			console.log('Inside data quantity ...');
-			        			console.log('data quantity ...: ' +data);
 			        			return '<span style="color:red;"><b>Out of Stock</b></span>'
 			        		}
 			        		return data
@@ -75,8 +77,6 @@ $(document).ready(function() {
 			        		str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160';
 			        		
 			        		if (row.quantity < 1) {
-			        			console.log('Inside data id ...');
-			        			console.log('row.quantity ...: ' +row.quantity);
 			        			str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 			        		} else {
 			        			str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product"><span class="glyphicon glyphicon-shopping-cart btn btn-success"></span></a>';
@@ -86,5 +86,13 @@ $(document).ready(function() {
 			        }
 			    ]
 		});
+	}
+	
+	//Code for Show message validation after 3s
+	var $alertMessage = $('.alert');
+	if ($alertMessage.length){
+		setTimeout(function(){
+			$alertMessage.fadeOut('slow');
+		}, 3000)
 	}
 });
