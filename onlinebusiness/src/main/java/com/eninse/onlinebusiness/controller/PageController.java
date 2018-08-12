@@ -1,5 +1,7 @@
 package com.eninse.onlinebusiness.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,16 +10,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eninse.businessbackend.dao.CategoryDAO;
+import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
+import com.eninse.businessbackend.dto.Product;
 
 @Controller
 public class PageController {
 
+	private static final Logger logger =  LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categorydao;
 	
+	@Autowired
+	private ProductDAO productDAO;
+	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
+		logger.debug("Init root controller ...");
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("categorydao", categorydao.listCategory());
 		mv.addObject("tittle", "Home");
@@ -61,6 +71,25 @@ public class PageController {
 		return mv;
 	}
 	
+	/*
+	 * Rest Controller Single Product
+	 */
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView shoSingleProduct (@PathVariable("id") int id){
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		//Update views product
+		Product product = productDAO.get(id);
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		
+		mv.addObject("tittle", product.getName());
+		mv.addObject("product", product);
+		
+		mv.addObject("userClickShowProduct", true);
+		return mv;
+	}
 	
 	@RequestMapping(value = "show/all/products")
 	public ModelAndView listProducts() {

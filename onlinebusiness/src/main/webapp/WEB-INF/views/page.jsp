@@ -9,65 +9,78 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Online Shopping - ${tittle}</title>
-<script type="text/javascript">
-	window.menu = '${tittle}';
-</script>
-<!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap SuperHero Themes -->
-<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="${css}/onlineBusiness.css" rel="stylesheet">
-</head>
-<body>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<meta name="description" content="">
+			<meta name="author" content="">
+			<title>Online Shopping - ${tittle}</title>
+			<script type="text/javascript">
+				window.menu = '${tittle}';
+				window.contextRoot = '${contextRoot}';
+			</script>
+			<!-- Bootstrap core CSS -->
+			<link href="${css}/bootstrap.min.css" rel="stylesheet">
+			<!-- Bootstrap SuperHero Themes -->
+			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
+			<!-- Custom styles for this template -->
+			<link href="${css}/onlineBusiness.css" rel="stylesheet">
+			<!-- Bootstrap  DataTables -->
+<%-- 			<link href="${css}/dataTables.bootstrap.css" rel="stylesheet"> --%>
+			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.css"/>
+ 
 
-	<div class="wrapper">
-		<!-- Navigation -->
-		<%@include file="./shared/navBar.jsp"%>
-
-		<!-- Page Content -->
-		<div class="content">
-			<!-- Loading Home Page -->
-			<c:if test="${userClickHome == true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<!-- Loading About Page -->
-			<c:if test="${userClickAbout == true}">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- Loading Services Page -->
-			<c:if test="${userClickServices == true}">
-				<%@include file="services.jsp"%>
-			</c:if>
-
-			<!-- Loading List Products Page -->
-			<c:if test="${userClickListProducts == true or userClickCategoryProducts == true}">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-
-			<!-- Loading Contact Page -->
-			<c:if test="${userClickContact == true}">
-				<%@include file="contact.jsp"%>
-			</c:if>
+		</head>
+	<body>
+		<div class="wrapper">
+			<!-- Navigation -->
+			<%@include file="./shared/navBar.jsp"%>
+	
+			<!-- Page Content -->
+			<div class="content">
+				<!-- Loading Home Page -->
+				<c:if test="${userClickHome == true}">
+					<%@include file="home.jsp"%>
+				</c:if>
+	
+				<!-- Loading About Page -->
+				<c:if test="${userClickAbout == true}">
+					<%@include file="about.jsp"%>
+				</c:if>
+	
+				<!-- Loading Services Page -->
+				<c:if test="${userClickServices == true}">
+					<%@include file="services.jsp"%>
+				</c:if>
+	
+				<!-- Loading List Products Page -->
+				<c:if test="${userClickListProducts == true or userClickCategoryProducts == true}">
+					<%@include file="listProducts.jsp"%>
+				</c:if>
+	
+				<!-- Loading Contact Page -->
+				<c:if test="${userClickContact == true}">
+					<%@include file="contact.jsp"%>
+				</c:if>
+				
+				<!-- Loading Single Page Product -->
+				<c:if test="${userClickShowProduct == true}">
+					<%@include file="singleProduct.jsp"%>
+				</c:if>
+			</div>
+			<!-- Footer -->
+			<%@include file="./shared/footer.jsp"%>
+	
+			<!-- Bootstrap core JavaScript -->
+			<script src="${js}/jquery.js"></script>
+			<script src="${js}/bootstrap.bundle.min.js"></script>
+			<script src="${js}/onlineBusiness.js"></script>
+			<!-- Jquery  DataTables -->
+<%-- 			<script src="${js}/jquery.dataTables.js"></script> --%>
+<%-- 			<script src="${js}/dataTables.bootstrap.js"></script> --%>
+			<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
+			<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.js"></script>
 		</div>
-		<!-- Footer -->
-		<%@include file="./shared/footer.jsp"%>
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery.js"></script>
-		<script src="${js}/bootstrap.bundle.min.js"></script>
-		<script src="${js}/onlineBusiness.js"></script>
-
-	</div>
-</body>
+	</body>
 </html>
