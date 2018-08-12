@@ -13,6 +13,7 @@ import com.eninse.businessbackend.dao.CategoryDAO;
 import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
 import com.eninse.businessbackend.dto.Product;
+import com.eninse.onlinebusiness.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
@@ -75,12 +76,15 @@ public class PageController {
 	 * Rest Controller Single Product
 	 */
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView shoSingleProduct (@PathVariable("id") int id){
+	public ModelAndView shoSingleProduct (@PathVariable("id") int id) throws ProductNotFoundException{
 		
 		ModelAndView mv = new ModelAndView("page");
 		
 		//Update views product
 		Product product = productDAO.get(id);
+		
+		if (product == null) throw new ProductNotFoundException();
+		
 		product.setViews(product.getViews() + 1);
 		productDAO.update(product);
 		

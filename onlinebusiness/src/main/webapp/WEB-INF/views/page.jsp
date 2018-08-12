@@ -26,6 +26,8 @@
 			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 			<!-- Custom styles for this template -->
 			<link href="${css}/onlineBusiness.css" rel="stylesheet">
+			<!-- Font-awesome style -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			<!-- Bootstrap  DataTables -->
 <%-- 			<link href="${css}/dataTables.bootstrap.css" rel="stylesheet"> --%>
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.css"/>

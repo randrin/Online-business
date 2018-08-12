@@ -27,7 +27,7 @@
 			<br>
 			<br>
 			<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><b><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</b></a>
-			<a href="${contextRoot}/show/all/products" class="btn btn-primary"><b><span class="glyphicon glyphicon-list-alt"></span> Back</b></a>
+			<a href="${contextRoot}/show/all/products" class="btn btn-primary"><b><span class="glyphicon glyphicon-list-alt"></span> Back to List Product</b></a>
 		</div>
 	</div>
 </div>
