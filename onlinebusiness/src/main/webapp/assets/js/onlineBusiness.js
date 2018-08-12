@@ -58,14 +58,30 @@ $(document).ready(function() {
 			        		return 'Fcfa ' +data
 			        	}
 			        },
-			        {data: 'quantity'},
+			        {data: 'quantity',
+			        	mRender: function(data, type, row){
+			        		if (data < 1){
+			        			console.log('Inside data quantity ...');
+			        			console.log('data quantity ...: ' +data);
+			        			return '<span style="color:red;"><b>Out of Stock</b></span>'
+			        		}
+			        		return data
+			        	}
+			        },
 			        {data: 'id',
 			        	bSortable: false,
 			        	mRender: function(data, type, row){
 			        		var str = '';
-			        		str += '<a href="'+window.contextRoot+ '/show/'+data+'/product"><span class="glyphicon glyphicon-eye-open btn btn-primary"></span></a> &#160';
-			        		str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product"><span class="glyphicon glyphicon-shopping-cart btn btn-success"></span></a>';
-			        	return str;
+			        		str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160';
+			        		
+			        		if (row.quantity < 1) {
+			        			console.log('Inside data id ...');
+			        			console.log('row.quantity ...: ' +row.quantity);
+			        			str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+			        		} else {
+			        			str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product"><span class="glyphicon glyphicon-shopping-cart btn btn-success"></span></a>';
+			        		}
+			        		return str;
 			        	}
 			        }
 			    ]

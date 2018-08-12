@@ -76,7 +76,7 @@ public class PageController {
 	 * Rest Controller Single Product
 	 */
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView shoSingleProduct (@PathVariable("id") int id) throws ProductNotFoundException{
+	public ModelAndView showSingleProduct (@PathVariable("id") int id) throws ProductNotFoundException{
 		
 		ModelAndView mv = new ModelAndView("page");
 		
