@@ -86,7 +86,7 @@
 							<label class="control-label col-md-4" for="file"><b>Select Image: </b></label>
 							<div class="col-md-8">
 								<springform:input id="file" type="file" path="file" class="form-control" />
-<%-- 								<springform:errors path="file" cssClass="help-block" element="em"/> --%>
+								<springform:errors path="file" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						

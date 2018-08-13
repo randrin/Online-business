@@ -44,7 +44,6 @@ public class Product implements Serializable {
 	@Min(value=1, message="The price cannot less than 1")
 	private double unitPrice;
 	
-	@Min(value=1, message="The quantity cannot less than 1")
 	private int quantity;
 	
 	@Column(name="category_id")

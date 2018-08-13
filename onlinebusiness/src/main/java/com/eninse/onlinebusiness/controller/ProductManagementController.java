@@ -22,6 +22,7 @@ import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
 import com.eninse.businessbackend.dto.Product;
 import com.eninse.onlinebusiness.utils.UploadFilesUtils;
+import com.eninse.onlinebusiness.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -29,6 +30,8 @@ public class ProductManagementController {
 
 	public static final Logger logger = LoggerFactory.getLogger(ProductManagementController.class);
 	
+	ProductValidator productValidator = new ProductValidator();
+		
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -65,6 +68,9 @@ public class ProductManagementController {
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String productSubmission(@Valid @ModelAttribute("product") Product pdt, BindingResult results, 
 			Model model, HttpServletRequest request){
+		
+		//Validation File content
+		productValidator.validate(pdt, results);
 		
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "Manage Products");
