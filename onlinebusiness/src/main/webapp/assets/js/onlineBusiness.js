@@ -21,6 +21,10 @@ $(document).ready(function() {
 		case 'New Product':
 			$('#manageProducts').addClass('active');
 			break;
+		
+		case 'Edit Product':
+			$('#manageProducts').addClass('active');
+			break;
 			
 		case 'Contact Us':
 			$('#contact').addClass('active');
@@ -185,7 +189,7 @@ $(document).ready(function() {
 				        	bSortable: false,
 				        	mRender: function(data, type, row){
 				        		var str = '';
-				        		str += '<a href="${contextRoot}/manage/'+data.id+'/product" class="btn btn-danger">';
+				        		str += '<a href="'+contextRoot+'/manage/'+data+'/product" title="Edit Product" class="btn btn-danger">';
 				        		str += '<span class="glyphicon glyphicon-pencil"></span></a>';
 				        		return str;
 				        	}

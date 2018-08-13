@@ -74,7 +74,7 @@
 				</c:if>
 				
 				<!-- Loading Add New Product -->
-				<c:if test="${userClickAddNewProduct == true}">
+				<c:if test="${userClickAddNewProduct == true or userClickEditProduct == true}">
 					<%@include file="addNewProduct.jsp"%>
 				</c:if>
 			</div>

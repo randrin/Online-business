@@ -75,9 +75,9 @@ public class Product implements Serializable {
 		return "Product [id=" + id + ", code=" + code + ", name=" + name
 				+ ", brand=" + brand + ", description=" + description
 				+ ", unitPrice=" + unitPrice + ", quantity=" + quantity
-				+ ", categoryId=" + categoryId + ", supplyId=" + supplierId
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId
 				+ ", active=" + active + ", purchases=" + purchases
-				+ ", views=" + views + "]";
+				+ ", views=" + views + ", file=" + file + "]";
 	}
 	
 	/**

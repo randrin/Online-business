@@ -30,7 +30,7 @@ import com.eninse.onlinebusiness.validator.ProductValidator;
 @RequestMapping("/manage")
 public class ProductManagementController {
 
-	public static final Logger logger = LoggerFactory.getLogger(ProductManagementController.class);
+	public static final Logger log = LoggerFactory.getLogger(ProductManagementController.class);
 	
 	ProductValidator productValidator = new ProductValidator();
 		
@@ -44,7 +44,7 @@ public class ProductManagementController {
 	 * START Controller ADD NEW PRODUCT
 	 */
 	@RequestMapping(value="/new/product", method=RequestMethod.GET)
-	public ModelAndView addNeewProduct(@RequestParam(name="operation", required=false) String operation){
+	public ModelAndView addNewProduct(@RequestParam(name="operation", required=false) String operation){
 		ModelAndView mv = new ModelAndView("page");
 		
 		mv.addObject("tittle", "New Product");
@@ -70,7 +70,13 @@ public class ProductManagementController {
 			Model model, HttpServletRequest request){
 		
 		//Validation File content
-		productValidator.validate(pdt, results);
+		if (pdt.getId() == 0) {
+			productValidator.validate(pdt, results);
+		} else {
+			if (!pdt.getFile().getOriginalFilename().equals("")){
+				productValidator.validate(pdt, results);
+			}
+		}
 		
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "New Product");
@@ -85,8 +91,13 @@ public class ProductManagementController {
 			UploadFilesUtils.uploadFile(request, pdt.getFile(), pdt.getCode());
 		}
 		
-		logger.info(pdt.toString());
-		productDAO.add(pdt);
+		log.info(pdt.toString());
+		
+		if (pdt.getId() == 0) {
+			productDAO.add(pdt);		
+		} else {
+			productDAO.update(pdt);
+		}
 		return "redirect:/manage/new/product?operation=product";
 	}
 	
@@ -124,8 +135,16 @@ public class ProductManagementController {
 	public String productSubmission(@Valid @ModelAttribute("product") Product pdt, BindingResult results, 
 			Model model, HttpServletRequest request){
 		
+		log.info("Product to validate: " +pdt.toString());
+	
 		//Validation File content
-		productValidator.validate(pdt, results);
+		if (pdt.getId() == 0) {
+			productValidator.validate(pdt, results);
+		} else {
+			if (!pdt.getFile().getOriginalFilename().equals("")){
+				productValidator.validate(pdt, results);
+			}
+		}
 		
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "Manage Products");
@@ -140,8 +159,14 @@ public class ProductManagementController {
 			UploadFilesUtils.uploadFile(request, pdt.getFile(), pdt.getCode());
 		}
 		
-		logger.info(pdt.toString());
-		productDAO.add(pdt);
+		log.info("File to upload: " +pdt.toString());
+		
+		if (pdt.getId() == 0) {
+			productDAO.add(pdt);		
+		} else {
+			productDAO.update(pdt);
+		}
+		
 		return "redirect:/manage/products?operation=product";
 	}
 	
@@ -160,4 +185,19 @@ public class ProductManagementController {
 				? "The product with id "+product.getId()+" is successfully deactivated" 
 				: "The product with id "+product.getId()+" is successfully activated";
 	}
+	
+	@RequestMapping(value="/{id}/product", method=RequestMethod.GET)
+	public ModelAndView showEditProduct(@PathVariable int id){
+		ModelAndView mv = new ModelAndView("page");
+		
+		mv.addObject("tittle", "Edit Product");
+		mv.addObject("userClickEditProduct", true);
+		
+		//Retrieve the speficif product in the database
+		Product pdt = productDAO.get(id);
+		mv.addObject("product", pdt);
+		
+		log.info("Product to edit: " +pdt.toString());
+		return mv;
+	} 
 }
