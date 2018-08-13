@@ -4,12 +4,25 @@
 	<div class="row">
 		<c:if test="${not empty message}">
 			<div class="col-md-offset-2 col-xs-12">
-				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<div class="text-center">
-							<h3><b><i class="fa fa-check-circle"> ${message}</i></b></h3>
-						</div>
-				</div>
+				<!-- Success Message -->
+				<c:if test="${isSuccess}">
+					<div class="alert alert-success alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<div class="text-center">
+								<h3><b><i class="fa fa-check-circle" style="font-size: 25px;"> ${message}</i></b></h3>
+							</div>
+					</div>
+				</c:if>
+				
+				<!-- Fail Message -->
+				<c:if test="${isFail}">
+					<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<div class="text-center">
+								<h3><b><i class="fa fa-close" style="font-size: 25px;"> ${message}</i></b></h3>
+							</div>
+					</div>
+				</c:if>
 			</div>
 		</c:if>
 		<div class="col-md-offset-2 col-xs-12">
@@ -26,6 +39,7 @@
 							<label class="control-label col-md-4" for="name"><b>Product Name: </b></label>
 							<div class="col-md-8">
 								<springform:input id="name" type="text" path="name" placeholder="Enter product name" class="form-control"/>
+								<springform:errors path="name" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -34,6 +48,7 @@
 							<label class="control-label col-md-4" for="brand"><b>Brand Name: </b></label>
 							<div class="col-md-8">
 								<springform:input id="brand" type="text" path="brand" placeholder="Enter brand name" class="form-control"/>
+								<springform:errors path="brand" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -42,6 +57,7 @@
 							<label class="control-label col-md-4" for="description"><b>Product Description: </b></label>
 							<div class="col-md-8">
 								<springform:textarea id="description" rows="5" path="description" placeholder="Enter description product" class="form-control"></springform:textarea>
+								<springform:errors path="description" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -50,6 +66,7 @@
 							<label class="control-label col-md-4" for="unitPrice"><b>Product Price: </b></label>
 							<div class="col-md-8">
 								<springform:input id="unitPrice" type="number" path="unitPrice" placeholder="Price product" class="form-control" />
+								<springform:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
@@ -58,6 +75,7 @@
 							<label class="control-label col-md-4" for="quantity"><b>Product Quantity: </b></label>
 							<div class="col-md-8">
 								<springform:input id="quantity" type="number" path="quantity" placeholder="Quantity product" class="form-control" />
+								<springform:errors path="quantity" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 						
