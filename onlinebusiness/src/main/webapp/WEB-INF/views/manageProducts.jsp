@@ -33,7 +33,9 @@
 				<div class="panel-body">
 					<!-- Insert Form Element there -->
 					<springform:form class="form-horizontal" modelAttribute="product" 
-						method="POST" action="${contextRoot}/manage/products">
+						method="POST" 
+						action="${contextRoot}/manage/products"
+						enctype="multipart/form-data">
 						<!-- Product Name -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name"><b>Product Name: </b></label>
@@ -76,6 +78,15 @@
 							<div class="col-md-8">
 								<springform:input id="quantity" type="number" path="quantity" placeholder="Quantity product" class="form-control" />
 								<springform:errors path="quantity" cssClass="help-block" element="em"/>
+							</div>
+						</div>
+						
+						<!-- Product File -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file"><b>Select Image: </b></label>
+							<div class="col-md-8">
+								<springform:input id="file" type="file" path="file" class="form-control" />
+<%-- 								<springform:errors path="file" cssClass="help-block" element="em"/> --%>
 							</div>
 						</div>
 						

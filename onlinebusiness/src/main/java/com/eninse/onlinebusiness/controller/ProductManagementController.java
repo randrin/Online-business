@@ -2,12 +2,7 @@ package com.eninse.onlinebusiness.controller;
 
 import java.util.List;
 
-
-
-
-
-
-
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -26,6 +21,7 @@ import com.eninse.businessbackend.dao.CategoryDAO;
 import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
 import com.eninse.businessbackend.dto.Product;
+import com.eninse.onlinebusiness.utils.UploadFilesUtils;
 
 @Controller
 @RequestMapping("/manage")
@@ -67,7 +63,8 @@ public class ProductManagementController {
 	}
 	
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String productSubmission(@Valid @ModelAttribute("product") Product pdt, BindingResult results, Model model){
+	public String productSubmission(@Valid @ModelAttribute("product") Product pdt, BindingResult results, 
+			Model model, HttpServletRequest request){
 		
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "Manage Products");
@@ -76,6 +73,10 @@ public class ProductManagementController {
 			model.addAttribute("isFail", true);
 			
 			return "page";
+		}
+		
+		if (!pdt.getFile().getOriginalFilename().equals("")){
+			UploadFilesUtils.uploadFile(request, pdt.getFile(), pdt.getCode());
 		}
 		
 		logger.info(pdt.toString());

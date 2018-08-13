@@ -8,11 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
-
-
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -61,6 +61,9 @@ public class Product implements Serializable {
 	
 	private int purchases;
 	private int views;
+	
+	@Transient
+	private MultipartFile file;
 	
 	public Product() {
 		this.code = "PRD" +UUID.randomUUID().toString().substring(20).toUpperCase();
@@ -222,6 +225,20 @@ public class Product implements Serializable {
 	 */
 	public void setViews(int views) {
 		this.views = views;
+	}
+
+	/**
+	 * @return the file
+	 */
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	/**
+	 * @param file the file to set
+	 */
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	
 }
