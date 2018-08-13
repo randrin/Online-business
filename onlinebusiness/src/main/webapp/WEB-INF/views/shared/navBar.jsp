@@ -20,8 +20,12 @@
             <li class="nav-item styleItem" id="listOfProducts">
               <a class="nav-link" href="${contextRoot}/show/all/products"><b>PRODUCTS</b></a>
             </li>
-            <li class="nav-item styleItem" id="manageProducts">
-              <a class="nav-link" href="${contextRoot}/manage/products"><b>MANAGE PRODUCT</b></a>
+            <li class="nav-item dropdown styleItem" id="manageProducts">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownManageLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>MANAGE PRODUCT</b></a>
+            	<div class="dropdown-menu" aria-labelledby="navbarDropdownManageLink">
+		          <a class="dropdown-item" href="${contextRoot}/manage/products">List Products</a>
+		          <a class="dropdown-item" href="${contextRoot}/manage/new/product">Add New Product</a>
+		        </div>
             </li>
             <li class="nav-item styleItem" id="contact">
               <a class="nav-link" href="${contextRoot}/contact"><b>CONTACT</b></a>

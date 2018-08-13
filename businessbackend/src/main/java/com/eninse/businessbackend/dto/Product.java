@@ -55,7 +55,6 @@ public class Product implements Serializable {
 	private int supplierId;
 	
 	@Column(name="is_active")
-	@JsonIgnore
 	private boolean active = true;
 	
 	private int purchases;

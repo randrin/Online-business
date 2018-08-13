@@ -30,8 +30,6 @@
 			<!-- Bootstrap DataTables -->
 <%-- 			<link href="${css}/dataTables.bootstrap.css" rel="stylesheet"> --%>
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.css"/>
- 
-
 		</head>
 	<body>
 		<div class="wrapper">
@@ -74,6 +72,11 @@
 				<c:if test="${userClickManageProducts == true}">
 					<%@include file="manageProducts.jsp"%>
 				</c:if>
+				
+				<!-- Loading Add New Product -->
+				<c:if test="${userClickAddNewProduct == true}">
+					<%@include file="addNewProduct.jsp"%>
+				</c:if>
 			</div>
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>
@@ -82,6 +85,8 @@
 			<script src="${js}/jquery.js"></script>
 			<script src="${js}/bootstrap.bundle.min.js"></script>
 			<script src="${js}/onlineBusiness.js"></script>
+			<!-- Bootbox Plugin -->
+			<script src="${js}/bootbox.min.js"></script>
 			<!-- Jquery  DataTables -->
 <%-- 			<script src="${js}/jquery.dataTables.js"></script> --%>
 <%-- 			<script src="${js}/dataTables.bootstrap.js"></script> --%>

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eninse.businessbackend.dao.CategoryDAO;
@@ -38,6 +40,59 @@ public class ProductManagementController {
 	@Autowired
 	private ProductDAO productDAO;
 	
+	/*
+	 * START Controller ADD NEW PRODUCT
+	 */
+	@RequestMapping(value="/new/product", method=RequestMethod.GET)
+	public ModelAndView addNeewProduct(@RequestParam(name="operation", required=false) String operation){
+		ModelAndView mv = new ModelAndView("page");
+		
+		mv.addObject("tittle", "New Product");
+		mv.addObject("userClickAddNewProduct", true);
+		
+		Product pdt = new Product();
+		pdt.setActive(true);
+		pdt.setSupplierId(1);
+		
+		mv.addObject("product", pdt);
+		
+		if (operation != null) {
+			if(operation.equals("product")){
+				mv.addObject("message", "New Product added Successfully");
+				mv.addObject("isSuccess", true);
+			}
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/new/product", method=RequestMethod.POST)
+	public String newProductSubmission(@Valid @ModelAttribute("product") Product pdt, BindingResult results, 
+			Model model, HttpServletRequest request){
+		
+		//Validation File content
+		productValidator.validate(pdt, results);
+		
+		if (results.hasErrors()){
+			model.addAttribute("tittle", "New Product");
+			model.addAttribute("userClickAddNewProduct", true);
+			model.addAttribute("message", "Failed to add new Product");
+			model.addAttribute("isFail", true);
+			
+			return "page";
+		}
+		
+		if (!pdt.getFile().getOriginalFilename().equals("")){
+			UploadFilesUtils.uploadFile(request, pdt.getFile(), pdt.getCode());
+		}
+		
+		logger.info(pdt.toString());
+		productDAO.add(pdt);
+		return "redirect:/manage/new/product?operation=product";
+	}
+	
+	/*
+	 * START Controller MANAGEMENT PRODUCT
+	 */
 	@RequestMapping(value="/products", method=RequestMethod.GET)
 	public ModelAndView showProductManage(@RequestParam(name="operation", required=false) String operation){
 		ModelAndView mv = new ModelAndView("page");
@@ -88,5 +143,21 @@ public class ProductManagementController {
 		logger.info(pdt.toString());
 		productDAO.add(pdt);
 		return "redirect:/manage/products?operation=product";
+	}
+	
+	@RequestMapping(value="/product/{id}/action", method=RequestMethod.POST)
+	@ResponseBody
+	public String adminActivationAndDeactivationProduct(@PathVariable int id){
+		
+		//get the spedific Product with id
+		Product product = productDAO.get(id);
+		
+		//update Product to false
+		product.setActive(!product.isActive());
+		productDAO.update(product);
+		
+		return (!product.isActive()) 
+				? "The product with id "+product.getId()+" is successfully deactivated" 
+				: "The product with id "+product.getId()+" is successfully activated";
 	}
 }
