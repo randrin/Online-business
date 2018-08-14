@@ -60,6 +60,9 @@ public class ProductManagementController {
 			if(operation.equals("product")){
 				mv.addObject("message", "New Product added Successfully");
 				mv.addObject("isSuccess", true);
+			} else if(operation.equals("category")){
+				mv.addObject("message", "New Category added Successfully");
+				mv.addObject("isSuccess", true);
 			}
 		}
 		return mv;
@@ -101,6 +104,15 @@ public class ProductManagementController {
 		return "redirect:/manage/new/product?operation=product";
 	}
 	
+	@RequestMapping(value="/new/category", method=RequestMethod.POST)
+	public String newCategorySubmission(@Valid @ModelAttribute Category cat){
+		
+		categoryDAO.add(cat);
+		
+		return "redirect:/manage/new/product?operation=category";
+		
+	}
+	
 	/*
 	 * START Controller MANAGEMENT PRODUCT
 	 */
@@ -129,6 +141,11 @@ public class ProductManagementController {
 	@ModelAttribute("categories")
 	public List<Category> listCategoryAvailable(){
 		return categoryDAO.listCategory();
+	}
+	
+	@ModelAttribute("category")
+	public Category newCategoryAvailable(){
+		return new Category();
 	}
 	
 	@RequestMapping(value="/products", method=RequestMethod.POST)

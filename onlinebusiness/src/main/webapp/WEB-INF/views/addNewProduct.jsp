@@ -99,6 +99,17 @@
 										items="${categories}"
 										itemLabel="name"
 										itemValue="id"/>
+									
+									<!-- Add New Category for product with id = 0 -->
+									<c:if test="${product.id == 0}">
+										<div class="text-right">
+											<!-- Button trigger modal -->
+											<br><br>
+											<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalCategory">
+											  <b>Add New Category</b>
+											</button>
+										</div>
+									</c:if>
 								</div>
 							</div>
 							
@@ -129,6 +140,50 @@
 					<div class="panel-body">
 					</div>
 			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modalCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel"><b>Add New Category</b></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<springform:form id="categoryForm" modelAttribute="category" method="POST" 
+		      	action="${contextRoot}/manage/new/category"
+		      	class="form-horizontal">
+		      		<!-- Category Name -->
+		        	<div class="form-group">
+						<label class="control-label col-md-4" for="cat_name"><b>Category Name: </b></label>
+						<div class="col-md-8">
+							<springform:input id="cat_name" type="text" path="name" placeholder="Enter Category name" class="form-control" />
+<%-- 							<springform:errors path="name" cssClass="help-block" element="em"/> --%>
+						</div>
+					</div>
+					
+					<!-- Description Category -->
+		        	<div class="form-group">
+						<label class="control-label col-md-4" for="cat_description"><b>Category Name: </b></label>
+						<div class="col-md-8">
+							<springform:textarea id="cat_description" rows="5" cols="" path="description" placeholder="Enter Category decription" class="form-control"/>
+<%-- 							<springform:errors path="description" cssClass="help-block" element="em"/> --%>
+						</div>
+					</div>
+					
+					<!-- Submit Button -->
+					<div class="form-group">
+						<div class="col-md-offset-4 col-md-8">
+							<input type="submit" value="Add Category" class="btn btn-primary" />>
+						</div>
+					</div>
+		      	</springform:form>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</div>
 </div>

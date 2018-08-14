@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Category implements Serializable {
 	
@@ -20,7 +22,10 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotBlank(message="Please enter the category name")
 	private String name;
+	
+	@NotBlank(message="Please enter the category name")
 	private String description;
 	
 	@Column(name="image_url")

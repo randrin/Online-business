@@ -229,5 +229,36 @@ $(document).ready(function() {
 			});
 		}
 	
+	//Code Validation Categoey Form
+	var catForm = $('#categoryForm');
+	if (catForm.length){
+		catForm.validate({
+			rules: {
+				name: {
+					required: true,
+					minLength: 2
+				},
+				description: {
+					required: true,
+					minLength: 2
+				}
+			},
+			messages: {
+				name: {
+					required: 'Please enter the category name',
+					minLength: 'The category name shoud not be less than 2 characters'
+				},
+				description: {
+					required: 'Please enter the category description'
+				}
+			},
+			errorElement: 'em',
+			errorPlacement: function(error, element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+		});
+	}
+	
 	//
 });
