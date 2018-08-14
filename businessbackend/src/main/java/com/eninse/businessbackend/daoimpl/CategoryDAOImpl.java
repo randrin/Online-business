@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,8 @@ import com.eninse.businessbackend.dto.Category;
 @Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
+	public static final Logger log = LoggerFactory.getLogger(CategoryDAOImpl.class);
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -50,7 +54,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().persist(category);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to add category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
 			return false;
 		}
 	}
@@ -64,7 +68,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to update category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
 			return false;
 		}
 	}
@@ -79,7 +83,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to delete category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
 			return false;
 		}
 	}

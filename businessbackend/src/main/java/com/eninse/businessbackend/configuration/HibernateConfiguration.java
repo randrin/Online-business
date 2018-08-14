@@ -49,6 +49,7 @@ public class HibernateConfiguration {
 		pro.put("hibernate.dialect", Constants.DATASOURCE_DIALECT);
 		pro.put("hibernate.show_sql", "true");
 		pro.put("hibernate.format_sql", "true");
+		pro.put("hibernate.hbm2ddl.auto", "create");
 		return pro;
 	}
 	

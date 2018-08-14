@@ -3,6 +3,8 @@ package com.eninse.businessbackend.daoimpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,8 @@ import com.eninse.businessbackend.dto.Product;
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
 
+	public static final Logger log = LoggerFactory.getLogger(ProductDAOImpl.class);
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -27,7 +31,7 @@ public class ProductDAOImpl implements ProductDAO {
 					.getCurrentSession()
 					.get(Product.class, Integer.valueOf(productId));
 		} catch(Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to get product with id= " +productId+ " , " +e.getMessage()+ " - " +e.getCause());
 		}
 		return null;
 	}
@@ -54,7 +58,7 @@ public class ProductDAOImpl implements ProductDAO {
 					.persist(product);
 			return true;
 		} catch(Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to add product, " +e.getMessage()+ " - " +e.getCause());
 		}
 		return false;
 	}
@@ -71,7 +75,7 @@ public class ProductDAOImpl implements ProductDAO {
 					.update(product);
 			return true;
 		} catch(Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to delete product, " +e.getMessage()+ " - " +e.getCause());
 		}
 		return false;
 	}
@@ -87,7 +91,7 @@ public class ProductDAOImpl implements ProductDAO {
 					.update(product);
 			return true;
 		} catch(Exception e) {
-			e.printStackTrace();
+			log.error("Error trying to update product, " +e.getMessage()+ " - " +e.getCause());
 		}
 		return false;
 	}
