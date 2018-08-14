@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart implements Serializable{
@@ -20,8 +21,8 @@ public class Cart implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="user_id")
-	private int userId;
+	@OneToOne
+	private User user;
 	
 	private double total;
 	
@@ -33,7 +34,7 @@ public class Cart implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", userId=" + userId + ", total=" + total
+		return "Cart [id=" + id + ", user=" + user + ", total=" + total
 				+ ", carttLines=" + carttLines + "]";
 	}
 
@@ -49,20 +50,6 @@ public class Cart implements Serializable{
 	 */
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	/**
@@ -92,5 +79,20 @@ public class Cart implements Serializable{
 	public void setCarttLines(int carttLines) {
 		this.carttLines = carttLines;
 	}
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	
 }

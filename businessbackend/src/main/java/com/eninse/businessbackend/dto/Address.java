@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Address implements Serializable{
@@ -20,8 +23,8 @@ public class Address implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="user_id")
-	private int userId;
+	@ManyToOne
+	private User user;
 	
 	@Column(name="address_line_one")
 	private String addressLineOne;
@@ -44,7 +47,7 @@ public class Address implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", userId=" + userId + ", addressLineOne="
+		return "Address [id=" + id + ", user=" + user + ", addressLineOne="
 				+ addressLineOne + ", addressLineTwo=" + addressLineTwo
 				+ ", city=" + city + ", state=" + state + ", country="
 				+ country + ", postalCode=" + postalCode + ", shipping="
@@ -66,21 +69,27 @@ public class Address implements Serializable{
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	
 	/**
 	 * @return the addressLineOne
 	 */
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	/**
 	 * @param addressLineOne the addressLineOne to set
 	 */

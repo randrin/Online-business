@@ -2,11 +2,15 @@ package com.eninse.businessbackend.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.hibernate.engine.spi.CascadeStyle;
 
 @Entity(name = "user_detail")
 public class User implements Serializable {
@@ -34,6 +38,8 @@ public class User implements Serializable {
 	@Column(name="contact_number")
 	private String contactNumber;
 
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private Cart cart;
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -43,7 +49,7 @@ public class User implements Serializable {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", role=" + role + ", password=" + password
 				+ ", email=" + email + ", enabled=" + enabled
-				+ ", contactNumber=" + contactNumber + "]";
+				+ ", contactNumber=" + contactNumber + ", cart=" + cart + "]";
 	}
 
 	/**
@@ -156,6 +162,20 @@ public class User implements Serializable {
 	 */
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+
+	/**
+	 * @return the cart
+	 */
+	public Cart getCart() {
+		return cart;
+	}
+
+	/**
+	 * @param cart the cart to set
+	 */
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 }
