@@ -32,6 +32,7 @@ public class User implements Serializable {
 	
 	private String role;
 	private String password;
+	private String confirmPassword;
 	private String email;
 	private boolean enabled = true;
 	
@@ -48,8 +49,9 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", role=" + role + ", password=" + password
-				+ ", email=" + email + ", enabled=" + enabled
-				+ ", contactNumber=" + contactNumber + ", cart=" + cart + "]";
+				+ ", confirmPassword=" + confirmPassword + ", email=" + email
+				+ ", enabled=" + enabled + ", contactNumber=" + contactNumber
+				+ ", cart=" + cart + "]";
 	}
 
 	/**
@@ -176,6 +178,20 @@ public class User implements Serializable {
 	 */
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+	/**
+	 * @return the confirmPassword
+	 */
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	/**
+	 * @param confirmPassword the confirmPassword to set
+	 */
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 }

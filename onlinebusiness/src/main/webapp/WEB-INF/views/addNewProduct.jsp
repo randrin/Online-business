@@ -32,6 +32,7 @@
 						<h4><b><i class="fa fa-edit"> Product Management</i></b></h4>
 					</div>
 					<div class="panel-body">
+					
 						<!-- Insert Form Element there -->
 						<springform:form class="form-horizontal" modelAttribute="product" 
 							method="POST" 
@@ -161,7 +162,7 @@
 						<label class="control-label col-md-4" for="cat_name"><b>Category Name: </b></label>
 						<div class="col-md-8">
 							<springform:input id="cat_name" type="text" path="name" placeholder="Enter Category name" class="form-control" />
-<%-- 							<springform:errors path="name" cssClass="help-block" element="em"/> --%>
+							<springform:errors path="name" cssClass="help-block" element="em"/>
 						</div>
 					</div>
 					
@@ -170,7 +171,7 @@
 						<label class="control-label col-md-4" for="cat_description"><b>Category Name: </b></label>
 						<div class="col-md-8">
 							<springform:textarea id="cat_description" rows="5" cols="" path="description" placeholder="Enter Category decription" class="form-control"/>
-<%-- 							<springform:errors path="description" cssClass="help-block" element="em"/> --%>
+							<springform:errors path="description" cssClass="help-block" element="em"/>
 						</div>
 					</div>
 					

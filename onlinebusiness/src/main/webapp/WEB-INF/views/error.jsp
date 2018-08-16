@@ -21,7 +21,7 @@
 		window.contextRoot = '${contextRoot}';
 	</script>
 	<!-- Bootstrap core CSS -->
-	<link href="${css}/bootstrap.min.css" rel="stylesheet">
+	<link href="${css}/bootstrap.css" rel="stylesheet">
 	<!-- Bootstrap SuperHero Themes -->
 	<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
