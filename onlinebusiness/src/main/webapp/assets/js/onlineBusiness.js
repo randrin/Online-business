@@ -36,6 +36,17 @@ $(document).ready(function() {
 			break;
 	}
 	
+	// For handling CSRF token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0) {		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {			
+			xhr.setRequestHeader(header,token);			
+		});				
+	}
+	
 	//Code for DataTable fetch Data Json
 	var $table = $('#getListProducts');
 	
@@ -250,6 +261,36 @@ $(document).ready(function() {
 				},
 				description: {
 					required: 'Please enter the category description'
+				}
+			},
+			errorElement: 'em',
+			errorPlacement: function(error, element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+		});
+	}
+	
+	//Code Validation login Form
+	var loginForm = $('#loginForm');
+	if (loginForm.length){
+		loginForm.validate({
+			rules: {
+				username: {
+					required: true,
+					email: true
+				},
+				password: {
+					required: true,
+				}
+			},
+			messages: {
+				username: {
+					required: 'Please enter username',
+					email: 'Please enter the valid email address'
+				},
+				password: {
+					required: 'Please enter password'
 				}
 			},
 			errorElement: 'em',

@@ -18,7 +18,7 @@ import com.eninse.onlinebusiness.exception.ProductNotFoundException;
 @Controller
 public class PageController {
 
-	private static final Logger logger =  LoggerFactory.getLogger(PageController.class);
+	private static final Logger log =  LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
 	private CategoryDAO categorydao;
@@ -28,7 +28,7 @@ public class PageController {
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
-		logger.debug("Init root controller ...");
+		log.debug("Init root controller ...");
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("categorydao", categorydao.listCategory());
 		mv.addObject("tittle", "Home");
@@ -76,7 +76,7 @@ public class PageController {
 	 * Rest Controller Single Product
 	 */
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct (@PathVariable("id") int id) throws ProductNotFoundException{
+	public ModelAndView showSingleProduct (@PathVariable("id") int id) throws ProductNotFoundException {
 		
 		ModelAndView mv = new ModelAndView("page");
 		
@@ -103,6 +103,7 @@ public class PageController {
 		mv.addObject("userClickListProducts", true);
 		return mv;
 	}
+	
 	@RequestMapping(value = "/contact")
 	public ModelAndView contact() {
 		ModelAndView mv = new ModelAndView("page");
@@ -129,6 +130,22 @@ public class PageController {
 			test = "Hello user";
 		}
 		mv.addObject("greeting", test);
+		return mv;
+	}
+	
+	/*
+	 * Login redirect
+	 */
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(name="error", required = false)String error) {
+		ModelAndView mv = new ModelAndView("login");
+		
+		if (error != null){
+			mv.addObject("message", "Invalid username and/or password");
+			log.info("Mesage error found ....");
+		}
+		
+		mv.addObject("tittle", "Login");
 		return mv;
 	}
 }
