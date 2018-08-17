@@ -1,0 +1,97 @@
+package com.eninse.onlinebusiness.Handler;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
+import org.springframework.stereotype.Component;
+
+import com.eninse.businessbackend.dao.UserDAO;
+import com.eninse.businessbackend.dto.Address;
+import com.eninse.businessbackend.dto.Cart;
+import com.eninse.businessbackend.dto.User;
+import com.eninse.onlinebusiness.model.RegisterUserModel;
+
+@Component
+public class RegisterUserHandler {
+
+	public static final Logger log = LoggerFactory.getLogger(RegisterUserHandler.class);
+	
+	@Autowired
+	private UserDAO userDAO;
+	
+	public RegisterUserModel init () {
+		return new RegisterUserModel();
+	}
+	
+	public void registerUser (RegisterUserModel registerUserModel, User user){
+		registerUserModel.setUser(user);
+	}
+	
+	public void registerAddress (RegisterUserModel registerUserModel, Address address){
+		registerUserModel.setBilling(address);
+	}
+	
+	public String saveUserAndAddress (RegisterUserModel registerUserModel){
+		String transition = "successPage";
+		
+		//fetch the user and create the cart to the user
+		User user = registerUserModel.getUser();
+		
+		if (user.getRole().equals("USER")){
+			Cart cart = new Cart();
+			cart.setUser(user);
+			user.setCart(cart);
+		}
+		
+		//Save the user in db
+		userDAO.addUser(user);
+		
+		//Fetch the user address
+		Address address = registerUserModel.getBilling();
+		address.setUser(user);
+		address.setBilling(true);
+		
+		//Save the user in db
+		userDAO.addAddress(address);
+		
+		return transition;
+	}
+	
+	public String validationUser (User user, MessageContext messageContext) {
+		
+		String operation = "success";
+		
+		if (!(user.getPassword().equals(user.getConfirmPassword()))){
+			
+			messageContext.addMessage(
+						new MessageBuilder()
+						.error()
+						.source("confirmPassword")
+						.defaultText("Confirm password do not match the password")
+						.build()
+					);
+			operation = "failure";
+		}
+		
+		/*
+		 * TODO : To be verified
+		 */
+//		if (userDAO.getByEmail(user.getEmail()) != null){
+//			
+//			log.info("check the control email: " +userDAO.getByEmail(user.getEmail()));
+//			
+//			messageContext.addMessage(
+//					new MessageBuilder()
+//					.error()
+//					.source("email")
+//					.defaultText("Email address is already used")
+//					.build()
+//				);
+//			operation = "failure";
+//		}
+		
+		return operation;
+	}
+}

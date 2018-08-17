@@ -25,8 +25,11 @@
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</bean>
 	
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor"></property>
+<!-- 		<property name="order" value="-1" /> -->
 	</bean>
 	
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
@@ -50,5 +53,5 @@
 		<webflow:flow-location-pattern value="/**/*-flow.xml" />
 	</webflow:flow-registry>
 	
-	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator"/>
+	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" validator="validator" />
 </beans>

@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.engine.spi.CascadeStyle;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "user_detail")
 public class User implements Serializable {
@@ -25,14 +28,23 @@ public class User implements Serializable {
 	private int id;
 	
 	@Column(name="first_name")
+	@NotBlank(message="Please enter the First Name")
 	private String firstName;
 	
 	@Column(name="last_name")
+	@NotBlank(message="Please enter the Last Name")
 	private String lastName;
 	
 	private String role;
+	
+	@NotBlank(message="Please enter the password")
 	private String password;
+	
+	@Transient
+	@NotBlank(message="Please enter the confirm password")
 	private String confirmPassword;
+	
+	@NotBlank(message="Please enter the email")
 	private String email;
 	private boolean enabled = true;
 	
