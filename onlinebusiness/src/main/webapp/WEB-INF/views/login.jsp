@@ -105,7 +105,7 @@
 		
 				<!-- Bootstrap core JavaScript -->
 				<script src="${js}/jquery.js"></script>
-				<script src="${js}/bootstrap.min.js"></script>
+				<script src="${js}/bootstrap.bundle.min.js"></script>
 				<script src="${js}/onlineBusiness.js"></script>
 				<!-- Jquery Validate Plugin -->
 				<script src="${js}/jquery.validate.js"></script>

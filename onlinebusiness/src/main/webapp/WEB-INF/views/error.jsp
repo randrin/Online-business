@@ -49,11 +49,18 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="text-center">
-							<div style="margin: 30px;"><i class="fa fa-frown-o" style="font-size:100px;color:red"></i></div>
+							<!-- Show 403 Error Icon -->
+							<c:if test="${error404ToShow == true}">
+								<div style="margin: 30px;"><i class="fa fa-frown-o" style="font-size:100px;color:red"></i></div>
+							</c:if>
+							<!-- Show 404 Error Icon -->
+							<c:if test="${error403ToShow == true}">
+								<div style="margin: 30px;"><span class="glyphicon glyphicon-ban-circle" style="font-size:100px;color:red"></span></div>
+							</c:if>
 							<br>
-							<h2><b>404</b></h2>
+							<h2><b>${errorCode}</b></h2>
 							<br>
-							<h2><b>Page not found</b></h2>
+							<h2><b>${errorTittle}</b></h2>
 							<br>
 							<h1><b>${errorDescription}</b></h1>
 						</div>

@@ -148,4 +148,20 @@ public class PageController {
 		mv.addObject("tittle", "Login");
 		return mv;
 	}
+	
+	/*
+	 * Access Denied
+	 */
+	@RequestMapping(value="/deniedAccess")
+	public ModelAndView accessDenied() {
+		ModelAndView mv = new ModelAndView("error");
+		
+		mv.addObject("tittle", "Access Denied");
+		mv.addObject("errorTittle", "Access Denied");
+		mv.addObject("errorDescription", "You do not have the authorization to view this page. Please, Contact your administration");
+		mv.addObject("errorCode", "403 Error");
+		mv.addObject("error403ToShow", true);
+		
+		return mv;
+	}
 }
