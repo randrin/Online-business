@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.eninse.businessbackend.dao.UserDAO;
@@ -20,6 +21,9 @@ public class RegisterUserHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder pwdEncoder;
 	
 	public RegisterUserModel init () {
 		return new RegisterUserModel();
@@ -44,6 +48,9 @@ public class RegisterUserHandler {
 			cart.setUser(user);
 			user.setCart(cart);
 		}
+		
+		//Encode the user password
+		user.setPassword(pwdEncoder.encode(user.getPassword()));
 		
 		//Save the user in db
 		userDAO.addUser(user);

@@ -29,20 +29,21 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(100),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(60),
+	password VARCHAR(250),
+	confirmPassword VARCHAR(250),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),	
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
 );
 
-INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Randrino', 'Nzeukang', 'ADMIN', true, 'passaporto2003', 'nzeukangrandrin@gmail.com', '3296187465');
+INSERT INTO user_detail (first_name, last_name, role, enabled, password, confirmPassword, email, contact_number)
+VALUES ('Randrino', 'Nzeukang', 'ADMIN', true, '$2b$10$9G4H0OmTOaZlfY8xDTANN.fhODfmO4VUHZK6.BlnbMLvvaZU.6u/.', '$2b$10$9G4H0OmTOaZlfY8xDTANN.fhODfmO4VUHZK6.BlnbMLvvaZU.6u/.', 'nzeukangrandrin@gmail.com', '3296187465');
 
-INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Vanessa', 'Takou', 'SUPPLIER', true, 'passaporto2003', 'vtakou7@gmail.com', '7852569812');
+INSERT INTO user_detail (first_name, last_name, role, enabled, password, confirmPassword, email, contact_number)
+VALUES ('Vanessa', 'Takou', 'SUPPLIER', true, '$2b$10$4hfFjlUR0IvzmA9I3ab0vOCa43rTWpn5VEHWSWJvnOX2BZqJMyu5G', '$2b$10$4hfFjlUR0IvzmA9I3ab0vOCa43rTWpn5VEHWSWJvnOX2BZqJMyu5G', 'vtakou7@gmail.com', '7852569812');
 
-INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Aurel', 'Tchoffo', 'SUPPLIER', true, 'passaporto2003', 'tchoffo@gmail.com', '7777777777');
+INSERT INTO user_detail (first_name, last_name, role, enabled, password, confirmPassword, email, contact_number)
+VALUES ('Aurel', 'Tchoffo', 'SUPPLIER', true, '$2b$10$IHrXg.ZKwEKOYEMsgEn31uKCP0p9erAhok5Vuuqi69ucYdqbJ5B3C', '$2b$10$IHrXg.ZKwEKOYEMsgEn31uKCP0p9erAhok5Vuuqi69ucYdqbJ5B3C', 'tchoffo@gmail.com', '7777777777');
 
 /*
  * Table Product
