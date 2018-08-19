@@ -15,7 +15,8 @@ import javax.persistence.Transient;
 import org.hibernate.engine.spi.CascadeStyle;
 import org.hibernate.validator.constraints.NotBlank;
 
-@Entity(name = "user_detail")
+@Entity
+@Table(name = "user_detail")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -3612806247059771994L;
@@ -46,6 +47,7 @@ public class User implements Serializable {
 	
 	@NotBlank(message="Please enter the email")
 	private String email;
+	
 	private boolean enabled = true;
 	
 	@Column(name="contact_number")

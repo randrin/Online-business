@@ -37,10 +37,10 @@
 						</div>
 					</div>
 				</nav>
-			
 				<div class="content">
 					<div class="container">
 						<div class="row">
+							<!-- Error Message -->
 							<c:if test="${not empty message}">
 								<div class="col-md-6 col-md-offset-3">
 									<!-- Fail Credenzial -->
@@ -48,6 +48,17 @@
 										<button type="button" class="close" data-dismiss="alert">&times;</button>
 											<div class="text-center">
 												<b><i class="fa fa-close" style="font-size: 15px;"> ${message}</i></b>
+											</div>
+									</div>
+								</div>
+							</c:if>
+							<!-- Logout Message -->
+							<c:if test="${not empty logout}">
+								<div class="col-md-6 col-md-offset-3">
+									<div class="alert alert-success alert-dismissible">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+											<div class="text-center">
+												<b><i class="fa fa-check" style="font-size: 15px;"> ${logout}</i></b>
 											</div>
 									</div>
 								</div>

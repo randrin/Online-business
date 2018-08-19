@@ -29,6 +29,8 @@
 			<link href="${css}/onlineBusiness.css" rel="stylesheet">
 			<!-- Font-awesome style -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<!-- Material Icons style -->
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			<!-- Bootstrap DataTables -->
 <%-- 			<link href="${css}/dataTables.bootstrap.css" rel="stylesheet"> --%>
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.css"/>

@@ -106,14 +106,14 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getByEmail(String email) {
-		String selectQuery = "FROM User WHERE email = :emailAddress";
+		String selectQuery = "FROM User WHERE email = :email";
 		
 		log.info("Email Adress user : " +email);
 		
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, User.class)
-					.setParameter("emailAddress", email)
+					.setParameter("email", email)
 					.getSingleResult();
 		} catch (Exception e) {
 			log.error("Error trying to get User with email = "
