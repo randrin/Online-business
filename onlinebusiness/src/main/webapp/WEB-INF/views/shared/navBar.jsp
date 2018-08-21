@@ -54,20 +54,20 @@
 				    	id="dropdrown1" data-toggle="dropdown">
 				    		<b>${profileUserModel.fullName}</b>
 				    	</a>
-				    	<ul class="dropdown-menu">
+				    	<ul class="dropdown-menu" style="padding-left: 10px;">
 				    		<security:authorize access="hasAuthority('USER')">
 					    		<li>
 					    			<h5><b><a href="${contextRoot}/cart">
-					    				<span class="glyphicon glyphicon-shopping-cart"></span>
-					    				<span class="badge"><b>${profileUserModel.cart.carttLines}</b></span> - Fcfa ${profileUserModel.cart.total}
+					    				<span style="font-size: 15px;" class="glyphicon glyphicon-shopping-cart"></span>
+					    				<span class="badge notification"><b>10</b></span> - Fcfa ${profileUserModel.cart.total}
 					    			</a></b></h5>
 					    		</li>
 					    		<li class="divider" role="separator"></li>
-				    			<li><h6><b><a href="${contextRoot}/setting"><b><i class="fa fa-cog"></i> Parameters</b></a></b></h6></li>
-				    			<li><h6><b><a href="${contextRoot}/user"><b><i class="fa fa-address-card"></i> Personals Infos</b></a></b></h6></li>
+				    			<li><h6><b><a href="${contextRoot}/setting"><b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b></a></b></h6></li>
+				    			<li><h6><b><a href="${contextRoot}/user"><b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b></a></b></h6></li>
 				    		</security:authorize>
 				    		<li class="divider" role="separator"></li>
-				    		<li><h6><b><a href="${contextRoot}/logoutToAll"><b><i class="fa fa-sign-out"></i> Logout</b></a></b></h6></li>
+				    		<li><h6><b><a href="${contextRoot}/logoutToAll"><b><i style="font-size: 15px;" class="fa fa-sign-out"></i> Logout</b></a></b></h6></li>
 				    	</ul>
 				    </li>
           	</security:authorize>

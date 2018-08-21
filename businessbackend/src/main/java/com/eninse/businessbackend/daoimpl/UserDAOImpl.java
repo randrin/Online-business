@@ -29,7 +29,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean addUser(User user) {
 		try {
-			sessionFactory.getCurrentSession().persist(user);
+			sessionFactory
+				.getCurrentSession()
+					.persist(user);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to add user, " + e.getMessage() + " - "
@@ -44,7 +46,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean addAddress(Address address) {
 		try {
-			sessionFactory.getCurrentSession().persist(address);
+			sessionFactory
+				.getCurrentSession()
+					.persist(address);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to add address, " + e.getMessage() + " - "
@@ -59,7 +63,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean addCart(Cart cart) {
 		try {
-			sessionFactory.getCurrentSession().persist(cart);
+			sessionFactory
+				.getCurrentSession()
+					.persist(cart);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to add cart, " + e.getMessage() + " - "
@@ -75,9 +81,9 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, Address.class)
-					.setParameter("user", "user")
-					.setParameter("billing", "billing")
-					.getSingleResult();
+						.setParameter("user", "user")
+							.setParameter("billing", "billing")
+								.getSingleResult();
 		} catch (Exception e) {
 			log.error("Error trying to get Address for the user id = "
 					+ user.getId() + ", " + e.getMessage() + " - "
@@ -93,9 +99,9 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, Address.class)
-					.setParameter("user", "user")
-					.setParameter("shipping", "shipping")
-					.getResultList();
+						.setParameter("user", "user")
+							.setParameter("shipping", "shipping")
+								.getResultList();
 		} catch (Exception e) {
 			log.error("Error trying to get Address for the user id = "
 					+ user.getId() + ", " + e.getMessage() + " - "
@@ -113,13 +119,29 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, User.class)
-					.setParameter("email", email)
-					.getSingleResult();
+						.setParameter("email", email)
+							.getSingleResult();
 		} catch (Exception e) {
 			log.error("Error trying to get User with email = "
 					+ email + ", " + e.getMessage() + " - "
 					+ e.getCause());
 			return null;
+		}
+	}
+
+	/*
+	 * Update Cartline by cart in H2 Database
+	 */
+	@Override
+	public boolean updateCart(Cart cart) {
+		try {
+			sessionFactory
+					.getCurrentSession()
+						.update(cart);
+			return true;
+		} catch(Exception e) {
+			log.error("Error trying to update cartline, " +e.getMessage()+ " - " +e.getCause());
+			return false;
 		}
 	}
 

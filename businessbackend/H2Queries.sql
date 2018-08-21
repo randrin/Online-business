@@ -40,7 +40,6 @@ VALUES ('Randrino', 'Nzeukang', 'ADMIN', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqk
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
 VALUES ('Vanessa', 'Takou', 'SUPPLIER', true, '$2y$12$sZXpnzGB4cUs.5V1lvjW1uPYB5B3.4wvaN/6ki5rUYzK3Lh8jdXjG', 'vtakou7@gmail.com', '7852569812');
-
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
 VALUES ('Aurel', 'Tchoffo', 'SUPPLIER', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqkW.ZQVmmJxcvzMAffcc3eJimj80QC', 'tchoffo@gmail.com', '7777777777');
 
@@ -73,3 +72,18 @@ VALUES ('PRDDJAUSIS89WQ4', 'Lenovo', 'Laptop', 'The new lenovo Pc available in t
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('PRDQUQISJ458DGF', 'Akkai', 'Tv', 'The new Akkai Tv available in the OnlineShopping Store',897000, 3, true, 1, 1, 11, 33);
+
+/*
+ * Table Cart Line
+ */
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);

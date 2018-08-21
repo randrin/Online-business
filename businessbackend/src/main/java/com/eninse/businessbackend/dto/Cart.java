@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
 	private static final long serialVersionUID = -7020460231912969338L;
 
@@ -27,7 +27,7 @@ public class Cart implements Serializable{
 	private double total;
 	
 	@Column(name="cart_lines")
-	private int carttLines;
+	private int cartLines;
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -35,7 +35,7 @@ public class Cart implements Serializable{
 	@Override
 	public String toString() {
 		return "Cart [id=" + id + ", user=" + user + ", total=" + total
-				+ ", carttLines=" + carttLines + "]";
+				+ ", carttLines=" + cartLines + "]";
 	}
 
 	/**
@@ -69,15 +69,15 @@ public class Cart implements Serializable{
 	/**
 	 * @return the carttLines
 	 */
-	public int getCarttLines() {
-		return carttLines;
+	public int getCartLines() {
+		return cartLines;
 	}
 
 	/**
 	 * @param carttLines the carttLines to set
 	 */
-	public void setCarttLines(int carttLines) {
-		this.carttLines = carttLines;
+	public void setCartLines(int cartLines) {
+		this.cartLines = cartLines;
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class ProductDAOImpl implements ProductDAO {
 		try {
 			return sessionFactory
 					.getCurrentSession()
-					.get(Product.class, Integer.valueOf(productId));
+						.get(Product.class, Integer.valueOf(productId));
 		} catch(Exception e) {
 			log.error("Error trying to get product with id= " +productId+ " , " +e.getMessage()+ " - " +e.getCause());
 		}
@@ -43,8 +43,8 @@ public class ProductDAOImpl implements ProductDAO {
 	public List<Product> listProduct() {
 		return sessionFactory
 				.getCurrentSession()
-				.createQuery("FROM Product", Product.class)
-				.getResultList();
+					.createQuery("FROM Product", Product.class)
+						.getResultList();
 	}
 
 	/*
@@ -55,12 +55,12 @@ public class ProductDAOImpl implements ProductDAO {
 		try {
 			sessionFactory
 					.getCurrentSession()
-					.persist(product);
+						.persist(product);
 			return true;
 		} catch(Exception e) {
 			log.error("Error trying to add product, " +e.getMessage()+ " - " +e.getCause());
+			return false;
 		}
-		return false;
 	}
 
 	/*
@@ -72,7 +72,7 @@ public class ProductDAOImpl implements ProductDAO {
 			product.setActive(false);
 			sessionFactory
 					.getCurrentSession()
-					.update(product);
+						.update(product);
 			return true;
 		} catch(Exception e) {
 			log.error("Error trying to delete product, " +e.getMessage()+ " - " +e.getCause());
@@ -88,7 +88,7 @@ public class ProductDAOImpl implements ProductDAO {
 		try {
 			sessionFactory
 					.getCurrentSession()
-					.update(product);
+						.update(product);
 			return true;
 		} catch(Exception e) {
 			log.error("Error trying to update product, " +e.getMessage()+ " - " +e.getCause());
@@ -105,9 +105,9 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		return sessionFactory
 				.getCurrentSession()
-				.createQuery(activeProduct, Product.class)
-				.setParameter("active", true)
-				.getResultList();
+					.createQuery(activeProduct, Product.class)
+						.setParameter("active", true)
+							.getResultList();
 	}
 
 	/*
@@ -119,10 +119,10 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		return sessionFactory
 				.getCurrentSession()
-				.createQuery(activeProduct, Product.class)
-				.setParameter("active", true)
-				.setParameter("categoryId", categoryId)
-				.getResultList();
+					.createQuery(activeProduct, Product.class)
+						.setParameter("active", true)
+							.setParameter("categoryId", categoryId)
+								.getResultList();
 	}
 
 	/*
@@ -134,11 +134,11 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		return sessionFactory
 				.getCurrentSession()
-				.createQuery(activeProduct, Product.class)
-				.setParameter("active", true)
-				.setFirstResult(0)
-				.setMaxResults(count)
-				.getResultList();
+					.createQuery(activeProduct, Product.class)
+						.setParameter("active", true)
+							.setFirstResult(0)
+								.setMaxResults(count)
+									.getResultList();
 	}
 
 }

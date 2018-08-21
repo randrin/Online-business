@@ -51,7 +51,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean add(Category category) {
 		try{
-			sessionFactory.getCurrentSession().persist(category);
+			sessionFactory
+				.getCurrentSession()
+					.persist(category);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to add category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
@@ -65,7 +67,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean update(Category category) {
 		try{
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory
+				.getCurrentSession()
+					.update(category);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to update category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
@@ -80,7 +84,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean delete(Category category) {
 		try{
 			category.setActive(false);
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory
+				.getCurrentSession()
+					.update(category);
 			return true;
 		} catch (Exception e) {
 			log.error("Error trying to delete category with id= " +category.getId()+ " , " +e.getMessage()+ " - " +e.getCause());
