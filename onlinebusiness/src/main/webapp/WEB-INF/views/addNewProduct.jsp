@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="springform" uri="http://www.springframework.org/tags/form"%>
+<br><br>
 <div class="container">
 	<div class="row">
 		<c:if test="${not empty message}">

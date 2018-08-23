@@ -41,9 +41,9 @@ public class GlobalUserController {
 			if (user != null) {
 				profileUserModel = new ProfileUserModel();
 				profileUserModel.setEmail(user.getEmail());
-				//profileUserModel.setId(user.getId());
+				profileUserModel.setId(user.getId());
 				profileUserModel.setRole(user.getRole());
-				profileUserModel.setFullName(user.getFirstName()+ " " +user.getLastName());
+				profileUserModel.setFullName(user.getFirstName()+ " " +user.getLastName().toUpperCase());
 				profileUserModel.setLogged(true);
 				
 				//Set cart only for user

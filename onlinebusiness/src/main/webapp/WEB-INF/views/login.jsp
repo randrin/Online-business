@@ -120,6 +120,11 @@
 				<script src="${js}/onlineBusiness.js"></script>
 				<!-- Jquery Validate Plugin -->
 				<script src="${js}/jquery.validate.js"></script>
+				<script type="text/javascript">
+					setTimeout(function(){
+						$('.alert').fadeOut('slow');
+					}, 2000)
+				</script>
 			</div>
 	</body>
 </html>

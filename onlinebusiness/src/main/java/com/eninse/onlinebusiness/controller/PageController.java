@@ -67,7 +67,7 @@ public class PageController {
 	public ModelAndView categoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
 		
-		//Fetch a sngle category
+		//Fetch a single category
 		Category catgegory = null;
 		catgegory = categorydao.get(id);
 		

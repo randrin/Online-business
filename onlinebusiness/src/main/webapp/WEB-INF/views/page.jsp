@@ -81,6 +81,11 @@
 				<c:if test="${userClickAddNewProduct == true or userClickEditProduct == true}">
 					<%@include file="addNewProduct.jsp"%>
 				</c:if>
+				
+				<!-- Loading Cart User -->
+				<c:if test="${userClickShowCart == true}">
+					<%@include file="cart.jsp"%>
+				</c:if>
 			</div>
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>
