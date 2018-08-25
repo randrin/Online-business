@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<br><br>
 <div class="container" style="padding-top: 30px;">
 	<c:choose>
 		<c:when test="${not empty cartLines}">
@@ -14,37 +14,44 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td data-th="Product">
-							<div class="row">
-								<div class="col-sm-2 hidden-xs">
-									<img src="http://placehold.it/100x100" alt="..." class="img-responsive" />
+					<c:forEach items="${cartLines}" var="cartItem">
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<!-- Image Products -->
+									<div class="col-sm-2 hidden-xs">
+										<img src="${images}/${cartItem.product.code}.png" width="150" height="150" alt="${cartItem.product.name}" class="img-responsive" />
+									</div>
+									
+									<!-- Image Products -->
+									<div class="col-sm-10">
+										<h4 class="nomargin"><b>${cartItem.product.name}</b></h4>
+<%-- 										<c:if test="${cartItem.isAvailable == false}"> --%>
+<!-- 											<strong class="unAvailableProduct">(Not Available)</strong> -->
+<%-- 										</c:if> --%>
+										<p><b>Brand - ${cartItem.product.brand}</b></p>
+										<p><b>${cartItem.product.description}</b></p>
+									</div>
 								</div>
-								<div class="col-sm-10">
-									<h4 class="nomargin">Product 1</h4>
-									<p>Quis aute iure reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit
-										amet.</p>
-								</div>
-							</div>
-						</td>
-						<td data-th="Price">$1.99</td>
-						<td data-th="Quantity"><input type="number" class="form-control text-center" value="1"></td>
-						<td data-th="Subtotal" class="text-center">1.99</td>
-						<td class="actions" data-th="">
-							<button class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
-							<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-						</td>
-					</tr>
+							</td>
+							<td data-th="Price">${cartItem.product.unitPrice}</td>
+							<td data-th="Quantity"><input type="number" class="form-control text-center" value="${cartItem.product.quantity}"></td>
+							<td data-th="Subtotal" class="text-center"><b>Fcfa ${cartItem.total}</b></td>
+							<td class="actions" data-th="">
+								<button class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
+								<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 				<tfoot>
 					<tr class="visible-xs">
-						<td class="text-center"><strong>Total 1.99</strong></td>
+						<td class="text-center"><strong>Total ${profileUserModel.cart.total} Fcfa</strong></td>
 					</tr>
 					<tr>
-						<td><a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> <b>Continue Shopping</b></a></td>
+						<td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> <b>Continue Shopping</b></a></td>
 						<td colspan="2" class="hidden-xs"></td>
-						<td class="hidden-xs text-center"><strong><b>Total $1.99</b></strong></td>
+						<td class="hidden-xs text-center"><strong><b>Total ${profileUserModel.cart.total} </b></strong></td>
 						<td><a href="#" class="btn btn-success btn-block"><b>Checkout</b> <span class="glyphicon glyphicon-chevron-right"></a></td>
 					</tr>
 				</tfoot>
