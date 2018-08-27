@@ -311,5 +311,32 @@ $(document).ready(function() {
 		});
 	}
 	
+	//Refresh items into the cart
+	$('button[name="cartRefresh"]').click(function(){
+		var idCart = $(this).attr('value');
+		var countElement = $('#count_' +idCart);
+		
+		var originalCount = countElement.attr('value');
+		var currentCount = countElement.val();
+		
+		if (currentCount !== originalCount){
+			console.log("currentCount: " +currentCount);
+			console.log("originalCount: " +originalCount);
+			if (currentCount < 1 || currentCount > 3) {
+				countElement.val(originalCount);
+				bootbox.alert({
+					size: 'medium',
+					title: '<b>Update Quantity Product Error</b>',
+					message: 'Product quantity should be minimum 1 and maximum 3'
+				});
+			} else {
+				var urlToUpdate = window.contextRoot + '/cart/' +idCart+ '/update?count=' +currentCount;
+				window.location.href = urlToUpdate;
+			}
+		}
+	});
+	
+	
+	
 	//
 });

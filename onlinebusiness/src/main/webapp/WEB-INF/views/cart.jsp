@@ -1,6 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <br><br>
 <div class="container" style="padding-top: 30px;">
+	<!-- Message update cartLine -->
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<c:if test="${not empty message}">
+			<div class="alert alert-info">
+				<h3 class="text-center"><b><i class="fa fa-cart-arrow-down"></i> ${message}</b></h3>
+			</div>
+		</c:if>
+	</div>
+	<div class="col-md-3"></div>
 	<c:choose>
 		<c:when test="${not empty cartLines}">
 			<table id="cart" class="table table-hover table-condensed">
@@ -35,10 +45,10 @@
 								</div>
 							</td>
 							<td data-th="Price">${cartItem.product.unitPrice}</td>
-							<td data-th="Quantity"><input type="number" class="form-control text-center" value="${cartItem.product.quantity}"></td>
+							<td data-th="Quantity"><input type="number" id="count_${cartItem.id}" min="1" max="3" class="form-control text-center" value="${cartItem.productCount}"></td>
 							<td data-th="Subtotal" class="text-center"><b>Fcfa ${cartItem.total}</b></td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
+								<button type="button" name="cartRefresh" value="${cartItem.id}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
 								<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
 							</td>
 						</tr>
