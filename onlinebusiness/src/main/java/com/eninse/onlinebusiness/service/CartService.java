@@ -39,7 +39,7 @@ public class CartService {
 		return cartLineDAO.list(cart.getId());		
 	}
 
-	public String updteCartLineUser(int cartId, int count) {
+	public String updateCartLineUser(int cartId, int count) {
 
 		CartLine cartLine = cartLineDAO.get(cartId);
 
@@ -64,6 +64,26 @@ public class CartService {
 			cartLineDAO.updateCart(cart);
 			
 			return "result=update";
+		}
+	}
+
+	public String deleteCartLineUser(int cartId) {
+		
+		CartLine cartLine = cartLineDAO.get(cartId);
+		
+		if (cartLine == null){
+			return "result=error";
+		} else {
+			//first update the cart
+			Cart cart = this.getCart();
+			cart.setTotal(cart.getTotal() - cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines() - 1);
+			cartLineDAO.updateCart(cart);
+			
+			//delete the cart
+			cartLineDAO.delete(cartLine);
+			
+			return "result=delete";
 		}
 	}
 }

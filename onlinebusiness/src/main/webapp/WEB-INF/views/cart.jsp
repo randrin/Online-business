@@ -49,7 +49,7 @@
 							<td data-th="Subtotal" class="text-center"><b>Fcfa ${cartItem.total}</b></td>
 							<td class="actions" data-th="">
 								<button type="button" name="cartRefresh" value="${cartItem.id}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
-								<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+								<a href="${contextRoot}/cart/${cartItem.id}/delete" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
 					</c:forEach>
