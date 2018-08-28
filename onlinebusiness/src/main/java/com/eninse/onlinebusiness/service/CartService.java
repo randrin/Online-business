@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eninse.businessbackend.dao.CartLineDAO;
+import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Cart;
 import com.eninse.businessbackend.dto.CartLine;
 import com.eninse.businessbackend.dto.Product;
@@ -22,6 +23,9 @@ public class CartService {
 	
 	@Autowired
 	private CartLineDAO cartLineDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	 @Autowired
 	 private HttpSession session;
@@ -85,5 +89,36 @@ public class CartService {
 			
 			return "result=delete";
 		}
+	}
+
+	public String addCartLineUser(int productId) {
+
+		String response = null;
+
+		Cart cart = this.getCart();
+		CartLine cartLine = cartLineDAO.getByCartAndProduct(cart.getId(), productId);
+		
+		//check if the product isn't present in the cartLine
+		if (cartLine == null){
+			cartLine = new CartLine();
+			
+			Product prd = productDAO.get(productId);
+			cartLine.setCartId(cart.getId());
+			cartLine.setProduct(prd);
+			cartLine.setBuyingPrice(prd.getUnitPrice());
+			cartLine.setProductCount(1);
+			cartLine.setTotal(prd.getUnitPrice());
+			cartLine.setAvailable(true);
+			cartLineDAO.add(cartLine);
+			
+			cart.setCartLines(cart.getCartLines() + 1);
+			cart.setTotal(cart.getTotal() + cartLine.getTotal());
+			cartLineDAO.updateCart(cart);
+			
+			return "result=added";
+			
+		}
+		
+		return response;
 	}
 }

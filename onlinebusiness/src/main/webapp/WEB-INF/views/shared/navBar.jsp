@@ -19,7 +19,7 @@
             </li>
             <li class="nav-item styleItem" id="about">
               <a class="nav-link" href="${contextRoot}/about">
-              	<i class="fa fa-institution"></i>
+              	<i class="fa material-icons">store</i>
               	<b>ABOUT</b>
               </a>
             </li>

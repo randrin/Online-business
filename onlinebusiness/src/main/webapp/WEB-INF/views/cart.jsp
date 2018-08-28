@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<br><br>
+<br>
+<br>
 <div class="container" style="padding-top: 30px;">
 	<!-- Message update cartLine -->
 	<div class="col-md-3"></div>
@@ -68,10 +69,15 @@
 			</table>
 		</c:when>
 		<c:otherwise>
-			<div class="jumbotron">
-				<div class="text-center">
-					<h2><b>Your Shopping Cart is empty.</b></h2>
+			<div style="padding-top: 50px;" class="text-center">
+				<div class="jumbotron">
+					<div class="text-center">
+						<img src="${contextRoot}/resources/img/emptyCart.png" width="50" height="50"/>
+						<br><br>
+						<h2><b>Your Shopping Cart is empty.</b></h2>
+					</div>
 				</div>
+				<a href="${contextRoot}/show/all/products" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-chevron-left"></span> <b>Continue Shopping</b></a>
 			</div>
 		</c:otherwise>
 	</c:choose>
