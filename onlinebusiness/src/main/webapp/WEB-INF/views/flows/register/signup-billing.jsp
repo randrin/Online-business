@@ -77,10 +77,10 @@
 						<!-- Prevouis / Next Step Button -->
 						<div class="form-group">
 							<div class="col-md-offset-4 col-md-8">
-								<button type="submit" name="_eventId_personalForm" class="btn btn-primary">
+								<button type="submit" name="_eventId_personalForm" class="btn btn-primary btn-md">
 									<span class="glyphicon glyphicon-chevron-left"></span> <b>Personal Infos</b>
 								</button>
-								<button type="submit" name="_eventId_confirmForm" class="btn btn-primary">
+								<button type="submit" name="_eventId_confirmForm" class="btn btn-primary btn-md">
 									<b>Confirmation</b> <span class="glyphicon glyphicon-chevron-right"></span>
 								</button>
 							</div>

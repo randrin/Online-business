@@ -67,7 +67,7 @@
           	<security:authorize access="isAnonymous()">
           		<li class="nav-item dropdown styleItem" id="register">
 			    	<a class="nav-link" id="navbarDropdownManageSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-			    		<b><i style="font-size: 50px;" class="fa fa-power-off fa-rotate-90"></i></b>
+			    		<b><i style="font-size: 50px; color: red;" class="fa fa-power-off fa-rotate-90"></i></b>
 			    	</a>
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownManageSettings">
 				          <a class="dropdown-item" href="${contextRoot}/register"><b><i class="fa fa-sign-in"></i> SIGN UP</b></a>

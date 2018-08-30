@@ -91,7 +91,7 @@
 						<div class="form-group">
 							<div class="col-md-offset-4 col-md-8">
 							<br>
-								<button type="submit" name="_eventId_billingForm" class="btn btn-primary">
+								<button type="submit" name="_eventId_billingForm" class="btn btn-primary btn-md">
 									<b>Address Infos</b> <span class="glyphicon glyphicon-chevron-right"></span>
 								</button>
 							</div>

@@ -29,7 +29,7 @@
 							</div>
 						</div>
 						<div class="panel-footer">
-							<a href="${flowExecutionUrl}&_eventId_personalForm" class="btn btn-primary"><b><i class="fa fa-pencil"></i> Edit</b></a>
+							<a href="${flowExecutionUrl}&_eventId_personalForm" class="btn btn-primary btn-md"><b><i class="fa fa-pencil"></i> Edit</b></a>
 						</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 							</div>
 						</div>
 						<div class="panel-footer">
-							<a href="${flowExecutionUrl}&_eventId_billingForm" class="btn btn-primary"><b><i class="fa fa-pencil"></i> Edit</b></a>
+							<a href="${flowExecutionUrl}&_eventId_billingForm" class="btn btn-primary btn-md"><b><i class="fa fa-pencil"></i> Edit</b></a>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,7 @@
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
 					<div class="text-center">
-						<a href="${flowExecutionUrl}&_eventId_submitForm" class="btn btn-success btn-md"><b><i class="fa fa-check"></i> Confirmation</b></a>
+						<a href="${flowExecutionUrl}&_eventId_submitForm" class="btn btn-success btn-lg"><b><i class="fa fa-check"></i> Confirmation</b></a>
 					</div>
 				</div>
 			</div>

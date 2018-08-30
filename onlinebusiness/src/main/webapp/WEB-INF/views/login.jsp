@@ -93,7 +93,7 @@
 												<!-- Next Step Button -->
 												<div class="form-group">
 													<div class="col-md-offset-4 col-md-8">
-														<button type="submit" class="btn btn-primary">
+														<button type="submit" class="btn btn-primary btn-md">
 															<b>Enter</b> <span class="glyphicon glyphicon-triangle-right"></span>
 														</button>
 														<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -103,7 +103,7 @@
 									</div>
 									<div class="panel-footer">
 										<div class="text-right">
-								       		<b>New User ?</b><a href="${contextRoot}/register">Register Here</a>
+								       		<b>New User ?</b><a href="${contextRoot}/register"><b>Register Here</b></a>
 								       	</div>
 									</div>
 								</div>
