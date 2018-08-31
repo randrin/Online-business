@@ -13,7 +13,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.eninse.businessbackend.constants.Constants;
+import com.eninse.businessbackend.constants.DataSourceConstants;
 
 @Configuration
 @EnableTransactionManagement
@@ -26,10 +26,10 @@ public class HibernateConfiguration {
 		
 		BasicDataSource dataSource = new BasicDataSource();
 		
-		dataSource.setUrl(Constants.DATASOURCE_URL);
-		dataSource.setDriverClassName(Constants.DATASOURCE_DRIVER);
-		dataSource.setUsername(Constants.DATASOURCE_USERNAME);
-		dataSource.setPassword(Constants.DATASOURCE_PWD);
+		dataSource.setUrl(DataSourceConstants.DATASOURCE_URL);
+		dataSource.setDriverClassName(DataSourceConstants.DATASOURCE_DRIVER);
+		dataSource.setUsername(DataSourceConstants.DATASOURCE_USERNAME);
+		dataSource.setPassword(DataSourceConstants.DATASOURCE_PWD);
 		
 		return dataSource;
 	}
@@ -46,7 +46,7 @@ public class HibernateConfiguration {
 
 	private Properties getProperties() {
 		Properties pro = new Properties();
-		pro.put("hibernate.dialect", Constants.DATASOURCE_DIALECT);
+		pro.put("hibernate.dialect", DataSourceConstants.DATASOURCE_DIALECT);
 		pro.put("hibernate.show_sql", "true");
 		pro.put("hibernate.format_sql", "true");
 		pro.put("hibernate.hbm2ddl.auto", "update");

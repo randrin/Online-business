@@ -19,6 +19,8 @@ import com.eninse.businessbackend.dao.CategoryDAO;
 import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
 import com.eninse.businessbackend.dto.Product;
+import com.eninse.onlinebusiness.constants.AlertMessagesConstants;
+import com.eninse.onlinebusiness.constants.DeniedMessagesConstants;
 import com.eninse.onlinebusiness.exception.ProductNotFoundException;
 
 @Controller
@@ -148,12 +150,12 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("login");
 		
 		if (error != null){
-			mv.addObject("message", "Invalid username and/or password");
+			mv.addObject("message", AlertMessagesConstants.ALERT_INVALID_LOGIN);
 			log.info("Mesage error found ....");
 		}
 		
 		if (logout != null){
-			mv.addObject("logout", "You are successfully logout.");
+			mv.addObject("logout", AlertMessagesConstants.ALERT_SUCCESS_LOGOUT);
 		}
 		
 		mv.addObject("tittle", "Login");
@@ -168,9 +170,9 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("error");
 		
 		mv.addObject("tittle", "Access Denied");
-		mv.addObject("errorTittle", "Access Denied");
-		mv.addObject("errorDescription", "You do not have the authorization to view this page. Please, Contact your administration");
-		mv.addObject("errorCode", "403 Error");
+		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_PERMISSION);
+		mv.addObject("errorDescription", DeniedMessagesConstants.DENIED_403_DESCRIPTION);
+		mv.addObject("errorCode", DeniedMessagesConstants.DENIED_403_CODE);
 		mv.addObject("error403ToShow", true);
 		
 		return mv;

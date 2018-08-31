@@ -23,6 +23,7 @@ import com.eninse.businessbackend.dao.CategoryDAO;
 import com.eninse.businessbackend.dao.ProductDAO;
 import com.eninse.businessbackend.dto.Category;
 import com.eninse.businessbackend.dto.Product;
+import com.eninse.onlinebusiness.constants.AlertMessagesConstants;
 import com.eninse.onlinebusiness.utils.UploadFilesUtils;
 import com.eninse.onlinebusiness.validator.ProductValidator;
 
@@ -58,10 +59,10 @@ public class ProductManagementController {
 		
 		if (operation != null) {
 			if(operation.equals("product")){
-				mv.addObject("message", "New Product added Successfully");
+				mv.addObject("message", AlertMessagesConstants.ALERT_ADD_NEW_PRODUCT);
 				mv.addObject("isSuccess", true);
 			} else if(operation.equals("category")){
-				mv.addObject("message", "New Category added Successfully");
+				mv.addObject("message", AlertMessagesConstants.ALERT_ADD_NEW_CATEGORY);
 				mv.addObject("isSuccess", true);
 			}
 		}
@@ -84,7 +85,7 @@ public class ProductManagementController {
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "New Product");
 			model.addAttribute("userClickAddNewProduct", true);
-			model.addAttribute("message", "Failed to add new Product");
+			model.addAttribute("message", AlertMessagesConstants.ALERT_FAIL_ADD_PRODUCT);
 			model.addAttribute("isFail", true);
 			
 			return "page";
@@ -131,7 +132,7 @@ public class ProductManagementController {
 		
 		if (operation != null) {
 			if(operation.equals("product")){
-				mv.addObject("message", "New Product added Successfully");
+				mv.addObject("message", AlertMessagesConstants.ALERT_ADD_NEW_PRODUCT);
 				mv.addObject("isSuccess", true);
 			}
 		}
@@ -166,7 +167,7 @@ public class ProductManagementController {
 		if (results.hasErrors()){
 			model.addAttribute("tittle", "Manage Products");
 			model.addAttribute("userClickManageProducts", true);
-			model.addAttribute("message", "Failed to add new Product");
+			model.addAttribute("message", AlertMessagesConstants.ALERT_FAIL_ADD_PRODUCT);
 			model.addAttribute("isFail", true);
 			
 			return "page";
@@ -210,7 +211,7 @@ public class ProductManagementController {
 		mv.addObject("tittle", "Edit Product");
 		mv.addObject("userClickEditProduct", true);
 		
-		//Retrieve the speficif product in the database
+		//Retrieve the particolar product in the database
 		Product pdt = productDAO.get(id);
 		mv.addObject("product", pdt);
 		

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eninse.onlinebusiness.constants.AlertMessagesConstants;
 import com.eninse.onlinebusiness.service.CartService;
 
 @Controller
@@ -24,16 +25,16 @@ public class CartController {
 		if (result != null){
 			switch (result) {
 				case "added":
-					mv.addObject("message", "Product added successfully in basket Cart");
+					mv.addObject("message", AlertMessagesConstants.ALERT_ADD_PRODUCT);
 					break;
 				case "update":
-					mv.addObject("message", "Product in basket Cart updated successfully");
+					mv.addObject("message", AlertMessagesConstants.ALERT_UPDATE_PRODUCT);
 					break;
 				case "delete":
-					mv.addObject("message", "Product in basket Cart deleted successfully");
+					mv.addObject("message", AlertMessagesConstants.ALERT_REMOVE_PRODUCT);
 					break;
 				case "error":
-					mv.addObject("message", "There are something wrong! Try again");
+					mv.addObject("message", AlertMessagesConstants.ALERT_ERROR_ACTION);
 					break;
 				default:
 					break;

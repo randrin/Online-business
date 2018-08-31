@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.eninse.onlinebusiness.constants.DeniedMessagesConstants;
+
 @ControllerAdvice
 public class GlobalDefaultExecptionHandler {
 
@@ -16,9 +18,9 @@ public class GlobalDefaultExecptionHandler {
 		ModelAndView mv = new ModelAndView("error");
 		
 		mv.addObject("tittle", "Error 404");
-		mv.addObject("errorTittle", "Wrong Url");
-		mv.addObject("errorDescription", "The page you are looking for doesn't exist or it is under construction.");
-		mv.addObject("errorCode", "404 Error");
+		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_URL);
+		mv.addObject("errorDescription", DeniedMessagesConstants.DENIED_404_CODE);
+		mv.addObject("errorCode", DeniedMessagesConstants.DENIED_404_CODE);
 		mv.addObject("error404ToShow", true);
 
 		return mv;
@@ -33,9 +35,9 @@ public class GlobalDefaultExecptionHandler {
 		ModelAndView mv = new ModelAndView("error");
 		
 		mv.addObject("tittle", "Product not found");
-		mv.addObject("errorTittle", "Product not found");
-		mv.addObject("errorDescription", "The product you are looking for doesn't present in this moment. Try again later");
-		mv.addObject("errorCode", "404 Error");
+		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_PRODUCT);
+		mv.addObject("errorDescription", DeniedMessagesConstants.DENIED_ACCESS_PRODUCT_DESCRIPTION);
+		mv.addObject("errorCode", DeniedMessagesConstants.DENIED_404_CODE);
 		mv.addObject("error404ToShow", true);
 		
 		return mv;

@@ -2,6 +2,8 @@ package com.eninse.onlinebusiness.exception;
 
 import java.io.Serializable;
 
+import com.eninse.onlinebusiness.constants.DeniedMessagesConstants;
+
 public class ProductNotFoundException extends Exception implements Serializable{
 
 	private static final long serialVersionUID = -4093348135142369969L;
@@ -13,7 +15,7 @@ public class ProductNotFoundException extends Exception implements Serializable{
 	}
 
 	public ProductNotFoundException() {
-		this.message = "Prduct is not available";
+		this.message = DeniedMessagesConstants.PRODUCT_NOT_AVAILABLE;
 	}
 	
 	public ProductNotFoundException(String message) {

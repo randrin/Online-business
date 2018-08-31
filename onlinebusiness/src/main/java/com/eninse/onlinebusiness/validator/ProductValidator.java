@@ -4,6 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.eninse.businessbackend.dto.Product;
+import com.eninse.onlinebusiness.constants.TextMessagesConstants;
 
 public class ProductValidator implements Validator {
 
@@ -18,14 +19,14 @@ public class ProductValidator implements Validator {
 		Product p = (Product) target;
 		
 		if (p.getFile() == null || p.getFile().getOriginalFilename().equals("")){
-			errors.rejectValue("file", null, "Please select an image file to upload");
+			errors.rejectValue("file", null, TextMessagesConstants.TEXT_FILE_UPLOAD);
 			return;
 		}
 
 		if(!(p.getFile().getContentType().equals("image/jpeg") ||
 				p.getFile().getContentType().equals("image/png") ||
 				p.getFile().getContentType().equals("image/gif"))){
-			errors.rejectValue("file", null, "Please use only image file to upload");
+			errors.rejectValue("file", null, TextMessagesConstants.TEXT_IMAGE_UPLOAD);
 			return;
 		}
 	}

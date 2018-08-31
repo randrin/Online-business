@@ -1,4 +1,4 @@
-package com.eninse.onlinebusiness.Handler;
+package com.eninse.onlinebusiness.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,7 @@ import com.eninse.businessbackend.dao.UserDAO;
 import com.eninse.businessbackend.dto.Address;
 import com.eninse.businessbackend.dto.Cart;
 import com.eninse.businessbackend.dto.User;
+import com.eninse.onlinebusiness.constants.TextMessagesConstants;
 import com.eninse.onlinebusiness.model.RegisterUserModel;
 
 @Component
@@ -76,7 +77,7 @@ public class RegisterUserHandler {
 						new MessageBuilder()
 						.error()
 						.source("confirmPassword")
-						.defaultText("Confirm password do not match the password")
+						.defaultText(TextMessagesConstants.TEXT_NOT_MATCH_PASSWORD)
 						.build()
 					);
 			operation = "failure";

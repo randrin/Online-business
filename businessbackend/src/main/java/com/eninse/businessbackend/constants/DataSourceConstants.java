@@ -1,6 +1,6 @@
 package com.eninse.businessbackend.constants;
 
-public class Constants {
+public class DataSourceConstants {
 
 	// DBMS
 	public final static String DATASOURCE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping";
