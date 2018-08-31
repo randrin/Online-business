@@ -43,6 +43,7 @@ public class GlobalUserController {
 				profileUserModel.setEmail(user.getEmail());
 				profileUserModel.setId(user.getId());
 				profileUserModel.setRole(user.getRole());
+				profileUserModel.setGender(user.getGender());
 				profileUserModel.setFullName(user.getFirstName()+ " " +user.getLastName().toUpperCase());
 				profileUserModel.setLogged(true);
 				

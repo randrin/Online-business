@@ -78,22 +78,31 @@
           	<security:authorize access="isAuthenticated()">
           			<li class="nav-item dropdown styleItem">
 				    	<a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" id="dropdrown1" data-toggle="dropdown">
-				    		<b><i class="fa fa-user"></i> ${profileUserModel.fullName}</b>
+				    		<b>
+					    		<c:choose>
+					    			<c:when test="${profileUserModel.gender == 'M'}">
+					    				<i style="font-size: 15px;" class="fa fa-male"></i>
+					    			</c:when>
+					    			<c:otherwise>
+					    				<i style="font-size: 15px;" class="fa fa-female"></i>
+					    			</c:otherwise>
+					    		</c:choose>
+					    	${profileUserModel.fullName}</b>
 				    	</a>
 				    	<ul class="dropdown-menu" style="padding-left: 10px;">
 				    		<security:authorize access="hasAuthority('USER')">
-					    		<li>
-					    			<h5><b><a href="${contextRoot}/cart/show">
+					    		<li class="nav-item dropdown">
+					    			<h5><b><a href="${contextRoot}/cart/show" class="dropdown-item">
 					    				<i style="font-size: 15px;" class="fa fa-cart-arrow-down"></i>
 					    				<span class="badge notification"><b>${profileUserModel.cart.cartLines}</b></span><span><b> - Fcfa ${profileUserModel.cart.total}</b></span>
 					    			</a></b></h5>
 					    		</li>
 					    		<li class="divider" role="separator"></li>
-				    			<li><h6><b><a href="${contextRoot}/setting"><b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b></a></b></h6></li>
-				    			<li><h6><b><a href="${contextRoot}/user"><b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b></a></b></h6></li>
+				    			<li><h6><b><a href="${contextRoot}/setting" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b></a></b></h6></li>
+				    			<li><h6><b><a href="${contextRoot}/user" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b></a></b></h6></li>
 				    		</security:authorize>
 				    		<li class="divider" role="separator"></li>
-				    		<li><h6><b><a href="${contextRoot}/logoutToAll"><b><i style="font-size: 15px;" class="fa fa-sign-out"></i> Logout</b></a></b></h6></li>
+				    		<li><h6><b><a href="${contextRoot}/logoutToAll" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-power-off"></i> Logout</b></a></b></h6></li>
 				    	</ul>
 				    </li>
           	</security:authorize>

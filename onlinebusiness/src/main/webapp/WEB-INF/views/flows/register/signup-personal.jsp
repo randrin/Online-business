@@ -38,6 +38,19 @@
 							</div>
 						</div>
 
+						<!-- Male or Female choice -->
+						<div class="form-group">
+							<label class="control-label col-md-4"><b>Select sexe</b></label>
+							<div class="col-md-8">
+								<label class="radio-inline"> 
+									<springform:radiobutton path="gender" value="M" checked="checked"/><b> M</b>
+								</label>
+								<label class="radio-inline">
+									<springform:radiobutton path="gender" value="F"/><b> F</b>
+								</label>
+							</div>
+						</div>
+						
 						<!-- Email -->
 						<div class="form-group">
 							<label class="control-label col-md-4"><b>Email</b></label>
@@ -79,10 +92,10 @@
 							<label class="control-label col-md-4"><b>Select Role</b></label>
 							<div class="col-md-8">
 								<label class="radio-inline"> 
-									<springform:radiobutton path="role" value="USER" checked="checked" /> <b>User</b>
+									<springform:radiobutton path="role" value="USER" checked="checked"/><b> User</b>
 								</label>
 								<label class="radio-inline">
-									<springform:radiobutton path="role" value="SUPPLIER" /> <b>Supplier</b>
+									<springform:radiobutton path="role" value="SUPPLIER"/><b> Supplier</b>
 								</label>
 							</div>
 						</div>

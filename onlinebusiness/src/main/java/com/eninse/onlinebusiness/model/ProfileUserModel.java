@@ -10,6 +10,7 @@ public class ProfileUserModel implements Serializable {
 	
 	private int id;
 	private String fullName;
+	private String gender;
 	private String email;
 	private String role;
 	private Cart cart;
@@ -23,8 +24,8 @@ public class ProfileUserModel implements Serializable {
 	@Override
 	public String toString() {
 		return "ProfileUserModel [id=" + id + ", fullName=" + fullName
-				+ ", email=" + email + ", role=" + role + ", cart=" + cart
-				+ ", isLogged=" + isLogged + "]";
+				+ ", gender=" + gender + ", email=" + email + ", role=" + role
+				+ ", cart=" + cart + ", isLogged=" + isLogged + "]";
 	}
 	
 	/**
@@ -99,6 +100,20 @@ public class ProfileUserModel implements Serializable {
 	 */
 	public void setLogged(boolean isLogged) {
 		this.isLogged = isLogged;
+	}
+
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }

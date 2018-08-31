@@ -38,6 +38,8 @@ public class User implements Serializable {
 	
 	private String role;
 	
+	private String gender;
+	
 	@NotBlank(message="Please enter the password")
 	private String password;
 	
@@ -62,10 +64,10 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", role=" + role + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + ", email=" + email
-				+ ", enabled=" + enabled + ", contactNumber=" + contactNumber
-				+ ", cart=" + cart + "]";
+				+ lastName + ", role=" + role + ", gender=" + gender
+				+ ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", email=" + email + ", enabled=" + enabled
+				+ ", contactNumber=" + contactNumber + ", cart=" + cart + "]";
 	}
 
 	/**
@@ -206,6 +208,20 @@ public class User implements Serializable {
 	 */
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }
