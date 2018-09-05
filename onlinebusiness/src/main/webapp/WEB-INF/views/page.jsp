@@ -87,6 +87,21 @@
 				<c:if test="${userClickShowCart == true}">
 					<%@include file="cart.jsp"%>
 				</c:if>
+				
+				<!-- Loading Profile User -->
+				<c:if test="${userClickProfile == true}">
+					<%@include file="./user/profileUser.jsp"%>
+				</c:if>
+				
+				<!-- Loading Orders User -->
+				<c:if test="${userClickOrders == true}">
+					<%@include file="./user/ordersUser.jsp"%>
+				</c:if>
+				
+				<!-- Loading Profile User Item-->
+				<c:if test="${userClickSettings == true}">
+					<%@include file="./user/settingsUser.jsp"%>
+				</c:if>
 			</div>
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.eninse.businessbackend.dao.UserDAO;
+import com.eninse.businessbackend.dto.Address;
 import com.eninse.businessbackend.dto.User;
 import com.eninse.onlinebusiness.model.ProfileUserModel;
 
@@ -44,6 +45,7 @@ public class GlobalUserController {
 				profileUserModel.setId(user.getId());
 				profileUserModel.setRole(user.getRole());
 				profileUserModel.setGender(user.getGender());
+				profileUserModel.setContactNumber(user.getContactNumber());
 				profileUserModel.setFullName(user.getFirstName()+ " " +user.getLastName().toUpperCase());
 				profileUserModel.setLogged(true);
 				
@@ -51,6 +53,16 @@ public class GlobalUserController {
 				if (user.getRole().equalsIgnoreCase("USER")) {
 					profileUserModel.setCart(user.getCart());
 				}
+				
+				//Address
+				Address address = userDAO.getBillingAddress(user);
+				profileUserModel.setAddressLineOne(address.getAddressLineOne());
+				profileUserModel.setAddressLineTwo(address.getAddressLineTwo());
+				profileUserModel.setCity(address.getCity());
+				profileUserModel.setCountry(address.getCountry());
+				profileUserModel.setState(address.getState());
+				profileUserModel.setPostalCode(address.getPostalCode());
+				
 				session.setAttribute("profileUserModel", profileUserModel);
 			}
 		} 

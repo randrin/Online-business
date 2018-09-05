@@ -29,7 +29,11 @@ $(document).ready(function() {
 		case 'Contact Us':
 			$('#contact').addClass('active');
 			break;
-	
+			
+		case 'My Data Informations':
+			$('#infosUser').addClass('active');
+			break;
+			
 		default:
 			$('#home').addClass('active');
 			$('#a_'+menu).addClass('active');
@@ -336,7 +340,17 @@ $(document).ready(function() {
 		}
 	});
 	
-	
-	
-	//
+	//Profile user Section
+	 $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+	        e.preventDefault();
+	        $(this).siblings('a.active').removeClass("active");
+	        $(this).addClass("active");
+	        var index = $(this).index();
+	        console.log("index ...." +index);
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+	    });
+
+	 
+	 //
 });

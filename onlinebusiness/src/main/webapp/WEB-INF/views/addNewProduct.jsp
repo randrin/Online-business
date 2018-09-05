@@ -4,36 +4,34 @@
 <div class="container">
 	<div class="row">
 		<c:if test="${not empty message}">
-			<div class="col-md-8 col-xs-12">
-				<!-- Success Message -->
-				<c:if test="${isSuccess}">
-					<div class="alert alert-success alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<div class="col-md-8 col-xs-12">
+					<!-- Success Message -->
+					<c:if test="${isSuccess}">
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
 							<div class="text-center">
 								<b><i class="fa fa-check-circle" style="font-size: 15px;"> ${message}</i></b>
 							</div>
-					</div>
-				</c:if>
-				
-				<!-- Fail Message -->
-				<c:if test="${isFail}">
-					<div class="alert alert-danger alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<div class="text-center">
-								<b><i class="fa fa-close" style="font-size: 15px;"> ${message}</i></b>
+						</div>
+						</c:if>
+						<!-- Fail Message -->
+						<c:if test="${isFail}">
+							<div class="alert alert-danger alert-dismissible">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<div class="text-center">
+									<b><i class="fa fa-close" style="font-size: 15px;"> ${message}</i></b>
+								</div>
 							</div>
+						</c:if>
 					</div>
-				</c:if>
-			</div>
-		</c:if>
+			</c:if>
 		<div class="col-md-8 col-xs-12">
 			<div style="overflow: auto;">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4><b><i class="fa fa-edit"> Product Management</i></b></h4>
+						<h4><b><i class="fa fa-edit"> <b>Product Management</b></i></b></h4>
 					</div>
 					<div class="panel-body">
-					
 						<!-- Insert Form Element there -->
 						<springform:form class="form-horizontal" modelAttribute="product" 
 							method="POST" 
@@ -137,7 +135,7 @@
 		<div class="col-md-4 col-xs-12">
 			<div class="panel panel-success">
 					<div class="panel-heading">
-						<h4><b><i class="fa fa-edit"> Instruction Add New Product</i></b></h4>
+						<h4><b><i class="fa fa-file-text"> <b>Instruction to Add New Product</b></i></b></h4>
 					</div>
 					<div class="panel-body">
 					</div>

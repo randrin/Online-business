@@ -40,6 +40,11 @@
 				<div class="content">
 					<div class="container">
 						<div class="row">
+							<br>
+							<div class="col-md-6 col-md-offset-3" style="padding: 10px;">
+								<h2 class="text-center"><b>A pleasure to see you again !!</b></h2>
+							</div>
+							<br>
 							<!-- Error Message -->
 							<c:if test="${not empty message}">
 								<div class="col-md-6 col-md-offset-3">
@@ -86,15 +91,19 @@
 												<div class="form-group">
 													<label class="control-label col-md-4" for="password"><b>Password</b></label>
 													<div class="col-md-8">
-														<input id="password" type="password" name="password" class="form-control" placeholder="Password" />>
+														<input id="password" type="password" name="password" class="form-control" placeholder="Password" />
+														<br>
+														<!-- Forgot Password -->
+														<a class="pull-right" href="${contextRoot}/password-forgot"><b>Forgot your Password?</b></a>
 													</div>
 												</div>
+												<br>
 												
 												<!-- Next Step Button -->
 												<div class="form-group">
 													<div class="col-md-offset-4 col-md-8">
 														<button type="submit" class="btn btn-primary btn-md">
-															<b>Enter</b> <span class="glyphicon glyphicon-triangle-right"></span>
+															<b>Access to Sales</b> <span class="glyphicon glyphicon-triangle-right"></span>
 														</button>
 														<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 													</div>

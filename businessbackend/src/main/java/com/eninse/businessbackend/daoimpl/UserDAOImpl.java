@@ -81,8 +81,8 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, Address.class)
-						.setParameter("user", "user")
-							.setParameter("billing", "billing")
+						.setParameter("user", user)
+							.setParameter("billing", true)
 								.getSingleResult();
 		} catch (Exception e) {
 			log.error("Error trying to get Address for the user id = "
@@ -99,8 +99,8 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, Address.class)
-						.setParameter("user", "user")
-							.setParameter("shipping", "shipping")
+						.setParameter("user", user)
+							.setParameter("shipping", true)
 								.getResultList();
 		} catch (Exception e) {
 			log.error("Error trying to get Address for the user id = "

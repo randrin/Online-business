@@ -78,7 +78,7 @@
           	<security:authorize access="isAuthenticated()">
           			<li class="nav-item dropdown styleItem">
 				    	<a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" id="dropdrown1" data-toggle="dropdown">
-				    		<b>
+				    		<b>${profileUserModel.fullName} (
 					    		<c:choose>
 					    			<c:when test="${profileUserModel.gender == 'M'}">
 					    				<i style="font-size: 15px;" class="fa fa-male"></i>
@@ -87,22 +87,42 @@
 					    				<i style="font-size: 15px;" class="fa fa-female"></i>
 					    			</c:otherwise>
 					    		</c:choose>
-					    	${profileUserModel.fullName}</b>
+					    	)</b>
 				    	</a>
-				    	<ul class="dropdown-menu" style="padding-left: 10px;">
+				    	<ul class="dropdown-menu" style="padding-left: 10px;" id="profileUser">
 				    		<security:authorize access="hasAuthority('USER')">
 					    		<li class="nav-item dropdown">
-					    			<h5><b><a href="${contextRoot}/cart/show" class="dropdown-item">
+					    			<h5><a href="${contextRoot}/cart/show" class="dropdown-item">
 					    				<i style="font-size: 15px;" class="fa fa-cart-arrow-down"></i>
-					    				<span class="badge notification"><b>${profileUserModel.cart.cartLines}</b></span><span><b> - Fcfa ${profileUserModel.cart.total}</b></span>
-					    			</a></b></h5>
+					    				<span class="badge notification"><b>${profileUserModel.cart.cartLines}</b></span><span> - <b style="color:red;">Fcfa ${profileUserModel.cart.total}</b></span>
+					    			</a></h5>
 					    		</li>
 					    		<li class="divider" role="separator"></li>
-				    			<li><h6><b><a href="${contextRoot}/setting" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b></a></b></h6></li>
-				    			<li><h6><b><a href="${contextRoot}/user" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b></a></b></h6></li>
+					    		<li class="userSection">
+					    			<h6><a href="${contextRoot}/user/orders" class="dropdown-item btn bn-primary">
+					    				<b><i style="font-size: 15px;" class="fa fa-list-alt"></i> My Orders</b>
+					    			</a></h6>
+					    		</li>
+					    		<li class="userSection">
+					    			<h6><a href="${contextRoot}/user/userInformations" class="dropdown-item">
+					    				<b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b>
+					    			</a></h6>
+					    		</li>
+				    			<li class="userSection">
+				    				<h6><a href="${contextRoot}/user/setting" class="dropdown-item">
+				    					<b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b>
+				    				</a></h6>
+				    			</li>
 				    		</security:authorize>
 				    		<li class="divider" role="separator"></li>
-				    		<li><h6><b><a href="${contextRoot}/logoutToAll" class="dropdown-item"><b><i style="font-size: 15px;" class="fa fa-power-off"></i> Logout</b></a></b></h6></li>
+				    		<li>
+				    			<h6>
+				    				<b><a href="${contextRoot}/logoutToAll" class="dropdown-item">
+				    					<b><i style="font-size: 15px;" class="fa fa-power-off"></i> Logout</b>
+				    					</a>
+				    				</b>
+				    			</h6>
+				    		</li>
 				    	</ul>
 				    </li>
           	</security:authorize>

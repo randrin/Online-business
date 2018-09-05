@@ -6,6 +6,13 @@
 
 <div class="container">
 	<div class="row">
+		<br>
+		<div class="col-md-6 col-md-offset-3" style="padding: 10px;">
+			<h2 class="text-center" style="color: red;"><b>Sign Up Free</b></h2>
+			<hr>
+			<h4 class="text-center"><b>And starts your Shopping !</b></h4>
+		</div>
+		<br>
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -40,7 +47,7 @@
 
 						<!-- Male or Female choice -->
 						<div class="form-group">
-							<label class="control-label col-md-4"><b>Select sexe</b></label>
+							<label class="control-label col-md-4"><b>Select Sexe</b></label>
 							<div class="col-md-8">
 								<label class="radio-inline"> 
 									<springform:radiobutton path="gender" value="M" checked="checked"/><b> M</b>
@@ -105,7 +112,7 @@
 							<div class="col-md-offset-4 col-md-8">
 							<br>
 								<button type="submit" name="_eventId_billingForm" class="btn btn-primary btn-md">
-									<b>Address Infos</b> <span class="glyphicon glyphicon-chevron-right"></span>
+									<b><i class="fa fa-address-card"></i> Address Infos</b> <span class="glyphicon glyphicon-chevron-right"></span>
 								</button>
 							</div>
 						</div>

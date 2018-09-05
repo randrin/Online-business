@@ -19,7 +19,7 @@ public class GlobalDefaultExecptionHandler {
 		
 		mv.addObject("tittle", "Error 404");
 		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_URL);
-		mv.addObject("errorDescription", DeniedMessagesConstants.DENIED_404_CODE);
+		mv.addObject("errorDescription", DeniedMessagesConstants.DENIED_404_DESCRIPTION);
 		mv.addObject("errorCode", DeniedMessagesConstants.DENIED_404_CODE);
 		mv.addObject("error404ToShow", true);
 
