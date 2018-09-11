@@ -27,6 +27,7 @@ CREATE TABLE user_detail (
 	id IDENTITY,
 	first_name VARCHAR(100),
 	last_name VARCHAR(100),
+	date_of_born DATE,
 	role VARCHAR(50),
 	gender VARCHAR(1),
 	enabled BOOLEAN,
@@ -36,14 +37,14 @@ CREATE TABLE user_detail (
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
 );
 
-INSERT INTO user_detail (first_name, last_name, gender, role, enabled, password, email, contact_number)
-VALUES ('Randrino', 'Nzeukang', 'M', 'ADMIN', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqkW.ZQVmmJxcvzMAffcc3eJimj80QC', 'nzeukangrandrin@gmail.com', '3296187465');
+INSERT INTO user_detail (first_name, last_name, date_of_born, gender, role, enabled, password, email, contact_number)
+VALUES ('Randrino', 'Nzeukang', '17-12-1986', 'M', 'ADMIN', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqkW.ZQVmmJxcvzMAffcc3eJimj80QC', 'nzeukangrandrin@gmail.com', '3296187465');
 
-INSERT INTO user_detail (first_name, last_name, gender, role, enabled, password, email, contact_number)
-VALUES ('Vanessa', 'Takou', 'F', 'SUPPLIER', true, '$2y$12$sZXpnzGB4cUs.5V1lvjW1uPYB5B3.4wvaN/6ki5rUYzK3Lh8jdXjG', 'vtakou7@gmail.com', '7852569812');
+INSERT INTO user_detail (first_name, last_name, date_of_born, gender, role, enabled, password, email, contact_number)
+VALUES ('Vanessa', 'Takou', '07-12-1988', 'F', 'SUPPLIER', true, '$2y$12$sZXpnzGB4cUs.5V1lvjW1uPYB5B3.4wvaN/6ki5rUYzK3Lh8jdXjG', 'vtakou7@gmail.com', '7852569812');
 
-INSERT INTO user_detail (first_name, last_name, gender, role, enabled, password, email, contact_number)
-VALUES ('Aurel', 'Tchoffo', 'M', 'SUPPLIER', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqkW.ZQVmmJxcvzMAffcc3eJimj80QC', 'tchoffo@gmail.com', '7777777777');
+INSERT INTO user_detail (first_name, last_name, date_of_born, gender, role, enabled, password, email, contact_number)
+VALUES ('Aurel', 'Tchoffo', '21-05-2000', 'M', 'SUPPLIER', true, '$2y$12$Bk3VFSBDX4g65on5nIInyuvqkW.ZQVmmJxcvzMAffcc3eJimj80QC', 'tchoffo@gmail.com', '7777777777');
 
 /*
  * Table Product

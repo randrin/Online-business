@@ -1,6 +1,7 @@
 package com.eninse.businessbackend.dto;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.engine.spi.CascadeStyle;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -35,6 +35,9 @@ public class User implements Serializable {
 	@Column(name="last_name")
 	@NotBlank(message="Please enter the Last Name")
 	private String lastName;
+	
+	@Column(name="date_of_born")
+	private Date dateOfBorn;
 	
 	private String role;
 	
@@ -64,10 +67,11 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", role=" + role + ", gender=" + gender
-				+ ", password=" + password + ", confirmPassword="
-				+ confirmPassword + ", email=" + email + ", enabled=" + enabled
-				+ ", contactNumber=" + contactNumber + ", cart=" + cart + "]";
+				+ lastName + ", datOfBorn=" + dateOfBorn + ", role=" + role
+				+ ", gender=" + gender + ", password=" + password
+				+ ", confirmPassword=" + confirmPassword + ", email=" + email
+				+ ", enabled=" + enabled + ", contactNumber=" + contactNumber
+				+ ", cart=" + cart + "]";
 	}
 
 	/**
@@ -224,4 +228,18 @@ public class User implements Serializable {
 		this.gender = gender;
 	}
 
+	/**
+	 * @return the datOfBorn
+	 */
+	public Date getDateOfBorn() {
+		return dateOfBorn;
+	}
+
+	/**
+	 * @param datOfBorn the datOfBorn to set
+	 */
+	public void setDateOfBorn(Date dateOfBorn) {
+		this.dateOfBorn = dateOfBorn;
+	}
+	
 }

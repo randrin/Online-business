@@ -1,6 +1,7 @@
 package com.eninse.onlinebusiness.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import com.eninse.businessbackend.dto.Cart;
 
@@ -15,6 +16,7 @@ public class ProfileUserModel implements Serializable {
 	private String email;
 	private String role;
 	private String contactNumber;
+	private Date dateOfBorn;
 	private Cart cart;
 	
 	//Address
@@ -35,11 +37,12 @@ public class ProfileUserModel implements Serializable {
 	public String toString() {
 		return "ProfileUserModel [id=" + id + ", fullName=" + fullName
 				+ ", gender=" + gender + ", email=" + email + ", role=" + role
-				+ ", contactNumber=" + contactNumber + ", cart=" + cart
-				+ ", addressLineOne=" + addressLineOne + ", addressLineTwo="
-				+ addressLineTwo + ", city=" + city + ", state=" + state
-				+ ", country=" + country + ", postalCode=" + postalCode
-				+ ", isLogged=" + isLogged + "]";
+				+ ", contactNumber=" + contactNumber + ", dateOfBorn="
+				+ dateOfBorn + ", cart=" + cart + ", addressLineOne="
+				+ addressLineOne + ", addressLineTwo=" + addressLineTwo
+				+ ", city=" + city + ", state=" + state + ", country="
+				+ country + ", postalCode=" + postalCode + ", isLogged="
+				+ isLogged + "]";
 	}
 	
 	/**
@@ -228,5 +231,18 @@ public class ProfileUserModel implements Serializable {
 		this.postalCode = postalCode;
 	}
 
-	
+	/**
+	 * @return the dateOfBorn
+	 */
+	public Date getDateOfBorn() {
+		return dateOfBorn;
+	}
+
+	/**
+	 * @param dateOfBorn the dateOfBorn to set
+	 */
+	public void setDateOfBorn(Date dateOfBorn) {
+		this.dateOfBorn = dateOfBorn;
+	}
+
 }

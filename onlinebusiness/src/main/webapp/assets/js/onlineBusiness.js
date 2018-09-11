@@ -353,4 +353,28 @@ $(document).ready(function() {
 
 	 
 	 //
+	 function startTime() {
+		 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		     var today = new Date();
+		     var h = today.getHours();
+		     var m = today.getMinutes();
+		     var s = today.getSeconds();
+		     var d = today.getDay();
+		     var y = today.getFullYear();
+		     var month = months[today.getMonth()];
+		     var day = days[today.getDay()];
+		     m = checkTime(m);
+		     s = checkTime(s);
+		     var counterTime = day+ ", " +d+ " "+month+ " " +y+ " - "+h+ ":" +m+ ":" +s;
+		     document.getElementById('time').innerHTML = counterTime;
+		     var t = setTimeout(startTime, 500);
+		     console.log("current time: " +counterTime);
+		 }
+		 function checkTime(i) {
+		     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		     return i;
+		 }
+	 
+	 //
 });

@@ -45,6 +45,15 @@
 							</div>
 						</div>
 
+						<!-- Date of Born -->
+						<div class="form-group">
+							<label class="control-label col-md-4"><b>Date Of Birth</b></label>
+							<div class="col-md-8">
+								<springform:input type="date" path="dateOfBorn" pattern="yyyy/MM/dd" class="form-control" placeholder="Birth Date" />
+								<springform:errors path="dateOfBorn" cssClass="help-block" element="em" />
+							</div>
+						</div>
+						
 						<!-- Male or Female choice -->
 						<div class="form-group">
 							<label class="control-label col-md-4"><b>Select Sexe</b></label>
