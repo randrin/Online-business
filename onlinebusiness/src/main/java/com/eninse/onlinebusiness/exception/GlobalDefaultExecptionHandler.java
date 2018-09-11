@@ -15,7 +15,7 @@ public class GlobalDefaultExecptionHandler {
 	 */
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ModelAndView handleNoHandleFoundException(){
-		ModelAndView mv = new ModelAndView("error");
+		ModelAndView mv = new ModelAndView("/errors/error");
 		
 		mv.addObject("tittle", "Error 404");
 		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_URL);
@@ -32,7 +32,7 @@ public class GlobalDefaultExecptionHandler {
 	 */
 	@ExceptionHandler(ProductNotFoundException.class)
 	public ModelAndView handleProductFoundException(){
-		ModelAndView mv = new ModelAndView("error");
+		ModelAndView mv = new ModelAndView("/errors/error");
 		
 		mv.addObject("tittle", "Product not found");
 		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_PRODUCT);

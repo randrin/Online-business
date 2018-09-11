@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<%@include file="./shared/categoryList.jsp" %>
+			<%@include file="../shared/categoryList.jsp" %>
 		</div>
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">

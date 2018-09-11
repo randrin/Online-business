@@ -69,7 +69,7 @@
 			</div>
 		</div>
 		<!-- Footer -->
-		<%@include file="./shared/footer.jsp"%>
+		<%@include file="../shared/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>

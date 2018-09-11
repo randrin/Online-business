@@ -45,47 +45,47 @@
 			<div class="content">
 				<!-- Loading Home Page -->
 				<c:if test="${userClickHome == true}">
-					<%@include file="home.jsp"%>
+					<%@include file="./site/home.jsp"%>
 				</c:if>
 	
 				<!-- Loading About Page -->
 				<c:if test="${userClickAbout == true}">
-					<%@include file="about.jsp"%>
+					<%@include file="./site/about.jsp"%>
 				</c:if>
 	
 				<!-- Loading Services Page -->
 				<c:if test="${userClickServices == true}">
-					<%@include file="services.jsp"%>
+					<%@include file="./site/services.jsp"%>
 				</c:if>
 	
 				<!-- Loading List Products Page -->
 				<c:if test="${userClickListProducts == true or userClickCategoryProducts == true}">
-					<%@include file="listProducts.jsp"%>
+					<%@include file="./product/listProduct.jsp"%>
 				</c:if>
 	
 				<!-- Loading Contact Page -->
 				<c:if test="${userClickContact == true}">
-					<%@include file="contact.jsp"%>
+					<%@include file="./site/contact.jsp"%>
 				</c:if>
 				
 				<!-- Loading Single Page Product -->
 				<c:if test="${userClickShowProduct == true}">
-					<%@include file="singleProduct.jsp"%>
+					<%@include file="./product/singleProduct.jsp"%>
 				</c:if>
 				
 				<!-- Loading Management Product -->
 				<c:if test="${userClickManageProducts == true}">
-					<%@include file="manageProducts.jsp"%>
+					<%@include file="./product/manageProduct.jsp"%>
 				</c:if>
 				
 				<!-- Loading Add New Product -->
 				<c:if test="${userClickAddNewProduct == true or userClickEditProduct == true}">
-					<%@include file="addNewProduct.jsp"%>
+					<%@include file="./product/addNewProduct.jsp"%>
 				</c:if>
 				
 				<!-- Loading Cart User -->
 				<c:if test="${userClickShowCart == true}">
-					<%@include file="cart.jsp"%>
+					<%@include file="./cart/cart.jsp"%>
 				</c:if>
 				
 				<!-- Loading Profile User -->

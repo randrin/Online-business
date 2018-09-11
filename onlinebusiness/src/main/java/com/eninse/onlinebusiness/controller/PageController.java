@@ -147,7 +147,7 @@ public class PageController {
 	@RequestMapping(value="/login")
 	public ModelAndView login(@RequestParam(name="error", required = false)String error,
 			@RequestParam(name="logout", required = false)String logout) {
-		ModelAndView mv = new ModelAndView("login");
+		ModelAndView mv = new ModelAndView("/site/login");
 		
 		if (error != null){
 			mv.addObject("message", AlertMessagesConstants.ALERT_INVALID_LOGIN);
@@ -167,7 +167,7 @@ public class PageController {
 	 */
 	@RequestMapping(value="/deniedAccess")
 	public ModelAndView accessDenied() {
-		ModelAndView mv = new ModelAndView("error");
+		ModelAndView mv = new ModelAndView("/errors/error");
 		
 		mv.addObject("tittle", "Access Denied");
 		mv.addObject("errorTittle", DeniedMessagesConstants.DENIED_ACCESS_PERMISSION);
