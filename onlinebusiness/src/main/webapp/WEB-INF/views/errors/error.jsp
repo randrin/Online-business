@@ -22,6 +22,7 @@
 	</script>
 	<!-- Bootstrap core CSS -->
 	<link href="${css}/bootstrap.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Bootstrap SuperHero Themes -->
 	<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
@@ -63,6 +64,9 @@
 							<h2><b>${errorTittle}</b></h2>
 							<br>
 							<h1><b>${errorDescription}</b></h1>
+							<br>
+							<br>
+							<a href="${contextRoot}/home" class="btn btn-primary btn-md"><b><i class="material-icons">undo</i> Back</b></a>
 						</div>
 					</div>
 				</div>

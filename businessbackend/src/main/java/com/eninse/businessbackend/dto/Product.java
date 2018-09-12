@@ -15,6 +15,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.eninse.businessbackend.constants.ProductMessagesConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Component
@@ -32,18 +33,18 @@ public class Product implements Serializable {
 	
 	private String code;
 	
-	@NotBlank(message="Please enter the product name")
+	@NotBlank(message=ProductMessagesConstants.PRODUCT_NAME)
 	private String name;
 	
-	@NotBlank(message="Please enter the product brand")
+	@NotBlank(message=ProductMessagesConstants.PRODUCT_BRAND)
 	private String brand;
 	
 	@JsonIgnore
-	@NotBlank(message="Please enter the product description")
+	@NotBlank(message=ProductMessagesConstants.PRODUCT_DESCRIPTION)
 	private String description;
 	
 	@Column(name="unit_price")
-	@Min(value=1, message="The price cannot less than 1")
+	@Min(value=1, message=ProductMessagesConstants.PRODUCT_PRICE)
 	private double unitPrice;
 	
 	private int quantity;

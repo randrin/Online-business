@@ -70,8 +70,8 @@
 			    		<b><i style="font-size: 50px; color: red;" class="fa fa-power-off fa-rotate-90"></i></b>
 			    	</a>
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownManageSettings">
-				          <a class="dropdown-item" href="${contextRoot}/register"><b><i class="fa fa-sign-in"></i> SIGN UP</b></a>
-				          <a class="dropdown-item" href="${contextRoot}/login"><b><i class="fa fa-user"></i> LOGIN</b></a>
+				          <h6><a class="dropdown-item" href="${contextRoot}/register"><b><i class="fa fa-sign-in"></i> SIGN UP</b></a></h6>
+				          <h6><a class="dropdown-item" href="${contextRoot}/login"><b><i class="fa fa-user"></i> LOGIN</b></a></h6>
 				       </div>
 				</li>
 			</security:authorize>
@@ -99,29 +99,29 @@
 					    		</li>
 					    		<li class="divider" role="separator"></li>
 					    		<li class="userSection">
-					    			<h6><a href="${contextRoot}/user/orders" class="dropdown-item btn bn-primary">
-					    				<b><i style="font-size: 15px;" class="fa fa-list-alt"></i> My Orders</b>
-					    			</a></h6>
+					    			<h5><a href="${contextRoot}/user/orders" class="dropdown-item">
+					    				<b><i class="fa fa-list-alt"></i> My Orders</b>
+					    			</a></h5>
 					    		</li>
 					    		<li class="userSection">
-					    			<h6><a href="${contextRoot}/user/userInformations" class="dropdown-item">
-					    				<b><i style="font-size: 15px;" class="fa fa-address-card"></i> Personals Infos</b>
-					    			</a></h6>
+					    			<h5><a href="${contextRoot}/user/userInformations" class="dropdown-item">
+					    				<b><i class="fa fa-address-card"></i> Personals Infos</b>
+					    			</a></h5>
 					    		</li>
 				    			<li class="userSection">
-				    				<h6><a href="${contextRoot}/user/setting" class="dropdown-item">
-				    					<b><i style="font-size: 15px;" class="fa fa-cog"></i> Parameters</b>
-				    				</a></h6>
+				    				<h5><a href="${contextRoot}/user/setting" class="dropdown-item">
+				    					<b><i class="fa fa-cog"></i> Parameters</b>
+				    				</a></h5>
 				    			</li>
 				    		</security:authorize>
 				    		<li class="divider" role="separator"></li>
 				    		<li>
-				    			<h6>
+				    			<h5>
 				    				<b><a href="${contextRoot}/logoutToAll" class="dropdown-item">
-				    					<b><i style="font-size: 15px;" class="fa fa-power-off"></i> Logout</b>
+				    					<b><i class="fa fa-power-off"></i> Logout</b>
 				    					</a>
 				    				</b>
-				    			</h6>
+				    			</h5>
 				    		</li>
 				    	</ul>
 				    </li>

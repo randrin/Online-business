@@ -10,6 +10,8 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.eninse.businessbackend.constants.CategoryMessagesConstants;
+
 @Entity
 public class Category implements Serializable {
 	
@@ -22,10 +24,10 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@NotBlank(message="Please enter the category name")
+	@NotBlank(message=CategoryMessagesConstants.CATEGORY_NAME)
 	private String name;
 	
-	@NotBlank(message="Please enter the category name")
+	@NotBlank(message=CategoryMessagesConstants.CATEGORY_DESCRIPTION)
 	private String description;
 	
 	@Column(name="image_url")

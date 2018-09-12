@@ -15,6 +15,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.eninse.businessbackend.constants.UserMessagesConstants;
+
 @Entity
 @Table(name = "user_detail")
 public class User implements Serializable {
@@ -29,11 +31,11 @@ public class User implements Serializable {
 	private int id;
 	
 	@Column(name="first_name")
-	@NotBlank(message="Please enter the First Name")
+	@NotBlank(message=UserMessagesConstants.USER_FIRST_NAME)
 	private String firstName;
 	
 	@Column(name="last_name")
-	@NotBlank(message="Please enter the Last Name")
+	@NotBlank(message=UserMessagesConstants.USER_LAST_NAME)
 	private String lastName;
 	
 	@Column(name="date_of_born")
@@ -43,14 +45,14 @@ public class User implements Serializable {
 	
 	private String gender;
 	
-	@NotBlank(message="Please enter the password")
+	@NotBlank(message=UserMessagesConstants.USER_PASSWORD)
 	private String password;
 	
 	@Transient
-	@NotBlank(message="Please enter the confirm password")
+	@NotBlank(message=UserMessagesConstants.USER_CONFIRM_PASSWORD)
 	private String confirmPassword;
 	
-	@NotBlank(message="Please enter the email")
+	@NotBlank(message=UserMessagesConstants.USER_EMAIL)
 	private String email;
 	
 	private boolean enabled = true;

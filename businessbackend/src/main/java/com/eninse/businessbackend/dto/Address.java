@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.eninse.businessbackend.constants.AddressMessagesConstants;
+
 @Entity
 public class Address implements Serializable{
 
@@ -27,24 +29,24 @@ public class Address implements Serializable{
 	private User user;
 	
 	@Column(name="address_line_one")
-	@NotBlank(message="Please enter the address name")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_NAME)
 	private String addressLineOne;
 	
 	@Column(name="address_line_two")
-	@NotBlank(message="Please enter the address name")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_NAME)
 	private String addressLineTwo;
 	
-	@NotBlank(message="Please enter the city")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_CITY)
 	private String city;
 	
-	@NotBlank(message="Please enter the state")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_STATE)
 	private String state;
 	
-	@NotBlank(message="Please enter the country")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_COUNTRY)
 	private String country;
 	
 	@Column(name="postal_code")
-	@NotBlank(message="Please enter the postal code")
+	@NotBlank(message=AddressMessagesConstants.ADDRESS_POSTAL_CODE)
 	private String postalCode;
 	
 	private boolean shipping;

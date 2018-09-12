@@ -12,8 +12,12 @@
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
-								<label class="control-label col-md-4"><b>First Name</b></label>
+								<label class="control-label col-md-4"><b>Full Name</b></label>
 								<div class="col-md-8"><h5>${registerUserModel.user.firstName} ${registerUserModel.user.lastName}</h5></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4"><b>Date of Birth</b></label>
+								<div class="col-md-8"><h5>${registerUserModel.user.dateOfBorn}</h5></div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-md-4"><b>Email</b></label>
@@ -50,12 +54,16 @@
 								<div class="col-md-8"><h5>${registerUserModel.billing.addressLineTwo}</h5></div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-4"><b>Postal Code</b></label>
-								<div class="col-md-8"><h5>${registerUserModel.billing.city}, ${registerUserModel.billing.postalCode}</h5></div>
-							</div>
-							<div class="form-group">
 								<label class="control-label col-md-4"><b>State</b></label>
 								<div class="col-md-8"><h5>${registerUserModel.billing.state}, ${registerUserModel.billing.country}</h5></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4"><b>Postal Code</b></label>
+								<div class="col-md-8"><h5>${registerUserModel.billing.postalCode}</h5></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4"><b>City</b></label>
+								<div class="col-md-8"><h5>${registerUserModel.billing.city}</h5></div>
 							</div>
 						</div>
 						<div class="panel-footer">

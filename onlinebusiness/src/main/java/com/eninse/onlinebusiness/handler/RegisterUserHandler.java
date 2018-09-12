@@ -31,6 +31,7 @@ public class RegisterUserHandler {
 	}
 	
 	public void registerUser (RegisterUserModel registerUserModel, User user){
+		log.info("Format date user: " +user.getDateOfBorn());
 		registerUserModel.setUser(user);
 	}
 	
@@ -68,6 +69,8 @@ public class RegisterUserHandler {
 	}
 	
 	public String validationUser (User user, MessageContext messageContext) {
+		
+		log.info("Format date user: " +user.getDateOfBorn());
 		
 		String operation = "success";
 		
