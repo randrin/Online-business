@@ -14,6 +14,7 @@ import com.eninse.businessbackend.dto.Cart;
 import com.eninse.businessbackend.dto.User;
 import com.eninse.onlinebusiness.constants.TextMessagesConstants;
 import com.eninse.onlinebusiness.model.RegisterUserModel;
+import com.eninse.onlinebusiness.utils.UserUtils;
 
 @Component
 public class RegisterUserHandler {
@@ -55,6 +56,7 @@ public class RegisterUserHandler {
 		user.setPassword(pwdEncoder.encode(user.getPassword()));
 		
 		//Save the user in db
+		user.setCodPromo(UserUtils.calculUserCodePromo(user));
 		userDAO.addUser(user);
 		
 		//Fetch the user address

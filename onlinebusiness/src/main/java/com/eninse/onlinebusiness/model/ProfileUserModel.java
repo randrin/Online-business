@@ -18,6 +18,7 @@ public class ProfileUserModel implements Serializable {
 	private String contactNumber;
 	private Date dateOfBorn;
 	private Cart cart;
+	private String codPromo;
 	
 	//Address
 	private String addressLineOne;
@@ -38,11 +39,11 @@ public class ProfileUserModel implements Serializable {
 		return "ProfileUserModel [id=" + id + ", fullName=" + fullName
 				+ ", gender=" + gender + ", email=" + email + ", role=" + role
 				+ ", contactNumber=" + contactNumber + ", dateOfBorn="
-				+ dateOfBorn + ", cart=" + cart + ", addressLineOne="
-				+ addressLineOne + ", addressLineTwo=" + addressLineTwo
-				+ ", city=" + city + ", state=" + state + ", country="
-				+ country + ", postalCode=" + postalCode + ", isLogged="
-				+ isLogged + "]";
+				+ dateOfBorn + ", cart=" + cart + ", codPromo=" + codPromo
+				+ ", addressLineOne=" + addressLineOne + ", addressLineTwo="
+				+ addressLineTwo + ", city=" + city + ", state=" + state
+				+ ", country=" + country + ", postalCode=" + postalCode
+				+ ", isLogged=" + isLogged + "]";
 	}
 	
 	/**
@@ -243,6 +244,20 @@ public class ProfileUserModel implements Serializable {
 	 */
 	public void setDateOfBorn(Date dateOfBorn) {
 		this.dateOfBorn = dateOfBorn;
+	}
+
+	/**
+	 * @return the codPromo
+	 */
+	public String getCodPromo() {
+		return codPromo;
+	}
+
+	/**
+	 * @param codPromo the codPromo to set
+	 */
+	public void setCodPromo(String codPromo) {
+		this.codPromo = codPromo;
 	}
 
 }

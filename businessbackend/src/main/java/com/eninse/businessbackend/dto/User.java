@@ -63,17 +63,20 @@ public class User implements Serializable {
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;
 
+	@Column(name="code_promo")
+	private String codPromo;
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", datOfBorn=" + dateOfBorn + ", role=" + role
+				+ lastName + ", dateOfBorn=" + dateOfBorn + ", role=" + role
 				+ ", gender=" + gender + ", password=" + password
 				+ ", confirmPassword=" + confirmPassword + ", email=" + email
 				+ ", enabled=" + enabled + ", contactNumber=" + contactNumber
-				+ ", cart=" + cart + "]";
+				+ ", cart=" + cart + ", codPromo=" + codPromo + "]";
 	}
 
 	/**
@@ -242,6 +245,20 @@ public class User implements Serializable {
 	 */
 	public void setDateOfBorn(Date dateOfBorn) {
 		this.dateOfBorn = dateOfBorn;
+	}
+
+	/**
+	 * @return the codPromo
+	 */
+	public String getCodPromo() {
+		return codPromo;
+	}
+
+	/**
+	 * @param codPromo the codPromo to set
+	 */
+	public void setCodPromo(String codPromo) {
+		this.codPromo = codPromo;
 	}
 	
 }

@@ -29,6 +29,7 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(100),
 	date_of_born DATE,
 	role VARCHAR(50),
+	code_promo VARCHAR(10),
 	gender VARCHAR(1),
 	enabled BOOLEAN,
 	password VARCHAR(60),
