@@ -66,7 +66,14 @@
 							<h1><b>${errorDescription}</b></h1>
 							<br>
 							<br>
-							<a href="${contextRoot}/home" class="btn btn-primary btn-md"><b><i class="material-icons">undo</i> Back</b></a>
+							<div class="form-group">
+								<a href="${contextRoot}/home" class="btn btn-primary btn-lg">
+									<span class="glyphicon glyphicon-chevron-left"></span> <b>Back to Home<b></i></b>
+								</a>
+								<a href="${contextRoot}/contact" class="btn btn-primary btn-lg">
+									<b>Contact Admin</b> <span class="glyphicon glyphicon-chevron-right"></span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

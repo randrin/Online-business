@@ -12,7 +12,11 @@ public class UserUtils {
 	public static final Logger log = LoggerFactory.getLogger(UserUtils.class);
 	
 	/*
-	 * User
+	 * User code promo : XXX YY AAA BB
+	 * XXX: First 3 letters FirstName User
+	 * YY: Last 2 number Year dateOfBorn User
+	 * AAA: 3 random characters
+	 * BB: Last 2 number day dateOfBorn User
 	 */
 	public static String calculUserCodePromo(User user) {
 		
