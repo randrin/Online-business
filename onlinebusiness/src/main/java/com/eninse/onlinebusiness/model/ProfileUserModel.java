@@ -31,6 +31,9 @@ public class ProfileUserModel implements Serializable {
 	//Boolean to show or hide the menu SIGN UP/LOGIN
 	private boolean isLogged = false;
 	
+	//Two initial Letter user
+	private String userInitial;
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -258,6 +261,20 @@ public class ProfileUserModel implements Serializable {
 	 */
 	public void setCodPromo(String codPromo) {
 		this.codPromo = codPromo;
+	}
+
+	/**
+	 * @return the userInitial
+	 */
+	public String getUserInitial() {
+		return userInitial;
+	}
+
+	/**
+	 * @param userInitial the userInitial to set
+	 */
+	public void setUserInitial(String userInitial) {
+		this.userInitial = userInitial;
 	}
 
 }

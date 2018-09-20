@@ -335,7 +335,6 @@ section .section-title {
 
 #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #f3f3f3;
-    
     border-color: transparent transparent #f3f3f3;
     border-bottom: 4px solid !important;
     font-size: 20px;
@@ -347,4 +346,15 @@ section .section-title {
     border-top-right-radius: .25rem;
     color: #eee;
     font-size: 20px;
+}
+
+.initialUser {
+	background: #444;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0px 0px #444;
+	-moz-box-shadow: 0 0px 0px #444;
+	box-shadow: 0 0px 0px #444;
+	color: #fff;
+	font-size: 1.8em;
+	font-weight: bold;
 }

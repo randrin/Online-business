@@ -14,6 +14,7 @@ import com.eninse.businessbackend.dao.UserDAO;
 import com.eninse.businessbackend.dto.Address;
 import com.eninse.businessbackend.dto.User;
 import com.eninse.onlinebusiness.model.ProfileUserModel;
+import com.eninse.onlinebusiness.utils.InitialUserUtils;
 
 @ControllerAdvice
 public class GlobalUserController {
@@ -48,6 +49,7 @@ public class GlobalUserController {
 				profileUserModel.setGender(user.getGender());
 				profileUserModel.setContactNumber(user.getContactNumber());
 				profileUserModel.setFullName(user.getFirstName()+ " " +user.getLastName().toUpperCase());
+				profileUserModel.setUserInitial(InitialUserUtils.calculTwoInitialUser(user.getFirstName(), user.getLastName()));
 				profileUserModel.setLogged(true);
 				
 				//Set cart only for user

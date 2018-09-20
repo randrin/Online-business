@@ -5,6 +5,7 @@
 <spring:url value="/resources/css" var="css"></spring:url>
 <spring:url value="/resources/js" var="js"></spring:url>
 <spring:url value="/resources/images" var="images"></spring:url>
+<spring:url value="/resources/img" var="img"></spring:url>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -19,6 +20,7 @@
 				window.menu = '${tittle}';
 				window.contextRoot = '${contextRoot}';
 			</script>
+			<link rel="icon" type="image/gif/png" href="${img}/casaShopUrl.png">
 			<!-- Bootstrap core CSS -->
 			<link href="${css}/bootstrap.css" rel="stylesheet">
 			<!-- Bootstrap SuperHero Themes -->

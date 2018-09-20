@@ -22,6 +22,7 @@
 				window.menu = '${tittle}';
 				window.contextRoot = '${contextRoot}';
 			</script>
+			<link rel="icon" type="image/gif/png" href="${img}/casaShopUrl.png">
 			<!-- Bootstrap core CSS -->
 			<link href="${css}/bootstrap.css" rel="stylesheet">
 			<!-- Bootstrap SuperHero Themes -->

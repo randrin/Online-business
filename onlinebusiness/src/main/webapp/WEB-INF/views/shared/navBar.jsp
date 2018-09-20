@@ -3,7 +3,7 @@
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="${contextRoot}/home">
-        	<b>Online Shopping</b>
+        	<img src="${contextRoot}/resources/img/casaShop.png" width="150" height="50"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@
           	<security:authorize access="isAuthenticated()">
           			<li class="nav-item dropdown styleItem">
 				    	<a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" id="dropdrown1" data-toggle="dropdown">
-				    		<b>${profileUserModel.fullName} (
+				    		<button class="btn btn-default initialUser">${profileUserModel.userInitial}</button><b style="font-size: 1.1em;"> ${profileUserModel.fullName} (
 					    		<c:choose>
 					    			<c:when test="${profileUserModel.gender == 'M'}">
 					    				<i style="font-size: 15px;" class="fa fa-male"></i>

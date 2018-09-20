@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<h1 class="my-4"><b>Shopping Online</b></h1>
+<h1 class="my-4"><b>Online Shopping</b></h1>
 <br>
-<p id="date"></p>
+<p id="date" style="font-weight: bold;"></p>
 <div class="container">
 	<div class="row">
 	  <p class="unit" id="hours"></p>
