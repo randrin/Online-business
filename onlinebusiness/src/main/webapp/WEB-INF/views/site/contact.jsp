@@ -101,7 +101,7 @@
 										maxlength="10" placeholder="Mobile No." required="">
 								</div>
 								<div class="form-group">
-									<textarea class="form-control textarea-contact" rows="5"
+									<textarea class="form-control textarea-contact" rows="10" cols="15"
 										id="comment" name="FB"
 										placeholder="Type Your Message/Feedback here..." required=""></textarea>
 									<br>

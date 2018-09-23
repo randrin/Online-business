@@ -22,7 +22,4 @@ public interface CartLineDAO {
 	// list of available cartLine
 	public List<CartLine> listCartLineAvailable(int cartId);
 	
-	// adding order details
-	//boolean addOrderDetail(OrderDetail orderDetail);
-	
 }
