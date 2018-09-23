@@ -24,7 +24,9 @@
 			<!-- Bootstrap core CSS -->
 			<link href="${css}/bootstrap.css" rel="stylesheet">
 			<!-- Bootstrap SuperHero Themes -->
-			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
+<%-- 			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet"> --%>
+			<!-- Bootstrap Cyborg Themes -->
+			<link href="${css}/bootstrap-cyborg-theme.css" rel="stylesheet">
 			<!-- Custom styles for this template -->
 			<link href="${css}/onlineBusiness.css" rel="stylesheet">
 			<!-- Font-awesome style -->
@@ -114,7 +116,7 @@
 									</div>
 									<div class="panel-footer">
 										<div class="text-right">
-								       		<b>New User ?</b><a href="${contextRoot}/register"><b>Register Here</b></a>
+								       		<b>New User? </b><a href="${contextRoot}/register"><b>Register Here</b></a>
 								       	</div>
 									</div>
 								</div>

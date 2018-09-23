@@ -74,6 +74,9 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/*
+	 * Retrieve Billing Address User in H2 Database
+	 */
 	@Override
 	public Address getBillingAddress(User user) {
 		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
@@ -92,6 +95,9 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/*
+	 * Retrieve List Billing Address User in H2 Database
+	 */
 	@Override
 	public List<Address> listShippingAddress(User user) {
 		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
@@ -110,6 +116,9 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/*
+	 * Retrieve Email User in H2 Database
+	 */
 	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email";
@@ -142,6 +151,30 @@ public class UserDAOImpl implements UserDAO {
 		} catch(Exception e) {
 			log.error("Error trying to update cartline, " +e.getMessage()+ " - " +e.getCause());
 			return false;
+		}
+	}
+
+	/*
+	 * Retrieve User by firstName and lastName in H2 Database
+	 */
+	@Override
+	public User getByFirstAndLastName(String firstName, String lastName) {
+		
+		log.info("FirstName user : " +firstName+ " And LastName user: " +lastName);
+		
+		String selectQuery = "FROM User WHERE firstName = :firstName AND lastName = :lastName";
+		
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery, User.class)
+						.setParameter("firstName", firstName)
+							.setParameter("lastName", lastName)
+								.getSingleResult();
+		} catch (Exception e) {
+			log.error("Error trying to get User with firstName = "
+					+ firstName + " And lastName = " +lastName+ " , " + e.getMessage() + " - "
+					+ e.getCause());
+			return null;
 		}
 	}
 

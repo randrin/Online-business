@@ -51,6 +51,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean add(Category category) {
 		try{
+			category.setName(category.getName().toUpperCase());
 			sessionFactory
 				.getCurrentSession()
 					.persist(category);

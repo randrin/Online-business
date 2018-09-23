@@ -24,7 +24,9 @@
 	<link href="${css}/bootstrap.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Bootstrap SuperHero Themes -->
-	<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
+<%-- 	<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet"> --%>
+	<!-- Bootstrap Cyborg Themes -->
+	<link href="${css}/bootstrap-cyborg-theme.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="${css}/onlineBusiness.css" rel="stylesheet">
 	<!-- Font-awesome style -->

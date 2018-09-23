@@ -1,5 +1,8 @@
 package com.eninse.onlinebusiness.handler;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.binding.message.MessageContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.eninse.businessbackend.constants.UtilsConstants;
 import com.eninse.businessbackend.dao.UserDAO;
 import com.eninse.businessbackend.dto.Address;
 import com.eninse.businessbackend.dto.Cart;
@@ -21,6 +25,10 @@ public class RegisterUserHandler {
 
 	public static final Logger log = LoggerFactory.getLogger(RegisterUserHandler.class);
 	
+	private static Pattern pattern = Pattern.compile(UtilsConstants.EMAIL_REGEX, Pattern.CASE_INSENSITIVE);
+
+	private Matcher matcher;
+
 	@Autowired
 	private UserDAO userDAO;
 	
@@ -32,7 +40,6 @@ public class RegisterUserHandler {
 	}
 	
 	public void registerUser (RegisterUserModel registerUserModel, User user){
-		log.info("Format date user: " +user.getDateOfBorn());
 		registerUserModel.setUser(user);
 	}
 	
@@ -76,8 +83,8 @@ public class RegisterUserHandler {
 		
 		String operation = "success";
 		
+		//Verify correct match password and confirm password
 		if (!(user.getPassword().equals(user.getConfirmPassword()))){
-			
 			messageContext.addMessage(
 						new MessageBuilder()
 						.error()
@@ -88,23 +95,47 @@ public class RegisterUserHandler {
 			operation = "failure";
 		}
 		
-		/*
-		 * TODO : To be verified
-		 */
-//		if (userDAO.getByEmail(user.getEmail()) != null){
-//			
-//			log.info("check the control email: " +userDAO.getByEmail(user.getEmail()));
-//			
-//			messageContext.addMessage(
-//					new MessageBuilder()
-//					.error()
-//					.source("email")
-//					.defaultText("Email address is already used")
-//					.build()
-//				);
-//			operation = "failure";
-//		}
+		//Verify correct format email address
+		if (!correctFormatEmail(user.getEmail())){
+			messageContext.addMessage(
+						new MessageBuilder()
+						.error()
+						.source("email")
+						.defaultText(TextMessagesConstants.TEXT_NOT_MATCH_EMAIL_FORMAT)
+						.build()
+					);
+			operation = "failure";
+		}
+		
+		//Verify correct user email already present in db
+		if (userDAO.getByEmail(user.getEmail()) != null){
+			messageContext.addMessage(
+					new MessageBuilder()
+					.error()
+					.source("email")
+					.defaultText(TextMessagesConstants.TEXT_ALREADY_PRESENT_EMAIL)
+					.build()
+				);
+			operation = "failure";
+		}
+		
+		// Verify correct user email already present in db
+		if (userDAO.getByFirstAndLastName(user.getFirstName(), user.getLastName()) != null) {
+			messageContext.addMessage(new MessageBuilder()
+					.error()
+					.source("firstName")
+					.source("lastName")
+					.defaultText(TextMessagesConstants.TEXT_ALREADY_PRESENT_FIRST_AND_LAST_NAME)
+					.build()
+				);
+			operation = "failure";
+		}
 		
 		return operation;
+	}
+	
+	public boolean correctFormatEmail(String email) {
+		matcher = pattern.matcher(email);
+		return matcher.matches();
 	}
 }
