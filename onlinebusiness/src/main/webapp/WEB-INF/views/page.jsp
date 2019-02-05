@@ -26,9 +26,9 @@
 			<!-- Bootstrap core CSS -->
 			<link href="${css}/bootstrap.css" rel="stylesheet">
 			<!-- Bootstrap SuperHero Themes -->
-<%-- 			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet"> --%>
+			<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 			<!-- Bootstrap Cyborg Themes -->
-			<link href="${css}/bootstrap-cyborg-theme.css" rel="stylesheet">
+<%-- 			<link href="${css}/bootstrap-cyborg-theme.css" rel="stylesheet"> --%>
 			<!-- Custom styles for this template -->
 			<link href="${css}/onlineBusiness.css" rel="stylesheet">
 			<!-- Font-awesome style -->
@@ -91,6 +91,11 @@
 					<%@include file="./cart/cart.jsp"%>
 				</c:if>
 				
+				<!-- Loading Checkout User -->
+				<c:if test="${userClickReviewCart == true}">
+					<%@include file="./checkout/checkout.jsp"%>
+				</c:if>
+				
 				<!-- Loading Profile User -->
 				<c:if test="${userClickProfile == true}">
 					<%@include file="./user/profileUser.jsp"%>
@@ -105,6 +110,7 @@
 				<c:if test="${userClickSettings == true}">
 					<%@include file="./user/settingsUser.jsp"%>
 				</c:if>
+				<a id="back-to-top" href="#" title="Go to Top"></a>
 			</div>
 			<!-- Footer -->
 			<%@include file="./shared/footer.jsp"%>

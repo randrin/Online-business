@@ -450,3 +450,12 @@ section .section-title {
 			}
 		}
 	/* Conatct end */
+
+// Go to Top
+#toTop{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: none;
+}

@@ -64,7 +64,7 @@
 						<td><a href="${contextRoot}/show/all/products" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-chevron-left"></span> <b>Continue Shopping</b></a></td>
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong><b>Total ${profileUserModel.cart.total} </b></strong></td>
-						<td><a href="#" class="btn btn-success btn-block btn-lg"><b>Checkout</b> <span class="glyphicon glyphicon-chevron-right"></a></td>
+						<td><a href="${contextRoot}/checkout/review" class="btn btn-success btn-block btn-lg"><b>Checkout</b> <span class="glyphicon glyphicon-chevron-right"></a></td>
 					</tr>
 				</tfoot>
 			</table>
